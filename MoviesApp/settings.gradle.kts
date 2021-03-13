@@ -7,4 +7,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "MoviesApp"
-include ':app'
+include(":app")
+include(":movies-data")
+include(":movies-data-models")
+include(":movies-data-models")
