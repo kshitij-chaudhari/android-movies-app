@@ -1,7 +1,17 @@
 package com.kc.android.architecture.samples.moviesapp
 
+object App {
+    const val compileSdk = 30
+    const val versionCode = 1
+    const val versionName = "1.0"
+    const val applicationId = "com.kc.android.architecture.samples.moviesapp"
+    const val minSdkVersion = 24
+    const val targetSdkVersion = 30
+}
+
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 object Libs {
+    const val buildToolsVersion = "30.0.3"
     const val androidGradlePlugin = "com.android.tools.build:gradle:7.0.0-alpha09"
 
     object Kotlin {
