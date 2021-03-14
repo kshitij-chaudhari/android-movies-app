@@ -45,8 +45,6 @@ android {
     }
 
     composeOptions {
-        //TODO check deprecation
-        kotlinCompilerVersion = Libs.Kotlin.version
         kotlinCompilerExtensionVersion = Libs.AndroidX.Compose.version
     }
 }
