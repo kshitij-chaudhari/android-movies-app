@@ -40,17 +40,17 @@ android {
 }
 
 dependencies {
-    //androidx
+    // androidx
     implementation(Libs.AndroidX.Core.coreKtx)
     implementation(Libs.AndroidX.AppCompat.appcompat)
 
-    //coroutines
+    // coroutines
     implementation(Libs.KotlinX.CoroutinesCore)
     implementation(Libs.KotlinX.CoroutinesAndroid)
 
-    //test
+    // test
     testImplementation(Libs.Junit.junit)
 
-    //modules
+    // modules
     implementation(project(path = ":movies-data-models"))
 }

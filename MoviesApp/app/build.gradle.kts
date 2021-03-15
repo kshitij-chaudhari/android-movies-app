@@ -50,20 +50,20 @@ android {
 }
 
 dependencies {
-    //android
+    // android
     implementation(Libs.Android.material)
 
-    //androidx
+    // androidx
     implementation(Libs.AndroidX.Core.coreKtx)
     implementation(Libs.AndroidX.AppCompat.appcompat)
     implementation(Libs.AndroidX.Lifecycle.runtimeKtx)
     implementation(Libs.AndroidX.Activity.compose)
 
-    //hilt
+    // hilt
 //    implementation Libs.AndroidX.Hilt.android
 //    kapt Libs.AndroidX.Hilt.compiler
 
-    //compose
+    // compose
     implementation(Libs.AndroidX.Compose.ui)
     implementation(Libs.AndroidX.Compose.uiTooling)
     implementation(Libs.AndroidX.Compose.foundation)
@@ -74,10 +74,10 @@ dependencies {
     implementation(Libs.AndroidX.Compose.runtimeLiveData)
     implementation(Libs.AndroidX.Compose.runtimeRxJava2)
 
-    //test
+    // test
     testImplementation(Libs.Junit.junit)
 
-    //android-test
+    // android-test
     androidTestImplementation(Libs.AndroidX.Test.Ext.junit)
     androidTestImplementation(Libs.AndroidX.Test.Espresso.core)
     androidTestImplementation(Libs.AndroidX.Compose.uiTestJunit4)

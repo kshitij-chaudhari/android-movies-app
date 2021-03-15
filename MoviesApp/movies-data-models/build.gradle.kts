@@ -41,10 +41,10 @@ android {
 
 dependencies {
 
-    //androidx
+    // androidx
     implementation(Libs.AndroidX.Core.coreKtx)
     implementation(Libs.AndroidX.AppCompat.appcompat)
 
-    //test
+    // test
     testImplementation(Libs.Junit.junit)
 }

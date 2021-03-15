@@ -94,5 +94,9 @@ object Libs {
         const val version = "4.13.2"
         const val junit = "junit:junit:$version"
     }
-}
 
+    object KtLint {
+        const val version = "0.40.0"
+        const val ktLint = "com.pinterest:ktlint:$version"
+    }
+}
