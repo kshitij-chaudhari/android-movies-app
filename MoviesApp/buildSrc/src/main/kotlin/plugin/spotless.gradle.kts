@@ -1,0 +1,21 @@
+import com.kc.android.architecture.samples.moviesapp.Libs
+
+plugins {
+    id("com.diffplug.spotless")
+}
+
+spotless {
+    kotlin {
+        target("**/*.kt")
+        targetExclude("**/build/**/*.kt")
+        targetExclude("**/bin/**/*.kt")
+
+        ktlint(Libs.KtLint.version)
+        licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
+    }
+
+    kotlinGradle {
+        target("**/*.gradle.kts") // default target for kotlinGradle
+        ktlint(Libs.KtLint.version) // or ktfmt() or prettier()
+    }
+}

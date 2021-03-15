@@ -95,6 +95,11 @@ object Libs {
         const val junit = "junit:junit:$version"
     }
 
+    object Spotless {
+        const val version = "5.11.0"
+        const val gradlePlugin = "com.diffplug.spotless:spotless-plugin-gradle:$version"
+    }
+
     object KtLint {
         const val version = "0.40.0"
         const val ktLint = "com.pinterest:ktlint:$version"
