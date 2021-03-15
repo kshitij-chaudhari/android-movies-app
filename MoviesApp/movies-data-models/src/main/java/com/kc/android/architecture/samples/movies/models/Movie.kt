@@ -1,3 +1,6 @@
+/*
+ * Copyright 2021 Kshitij Chaudhari
+ */
 package com.kc.android.architecture.samples.movies.models
 
 import java.util.Date
