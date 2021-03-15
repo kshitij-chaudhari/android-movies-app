@@ -16,6 +16,13 @@ spotless {
 
     kotlinGradle {
         target("**/*.gradle.kts") // default target for kotlinGradle
-        ktlint(Libs.KtLint.version) // or ktfmt() or prettier()
+        ktlint(Libs.KtLint.version)
+    }
+
+    format("xml") {
+        target("**/res/**/*.xml")
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
     }
 }
