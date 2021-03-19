@@ -7,7 +7,7 @@ import java.util.Date
 
 data class Movie(
     val id: Int,
-    val title: String,
+        val title: String,
     val releaseDate: Date,
     val popularity: Float,
     val posterImage: String,
