@@ -3,7 +3,7 @@
  */
 package com.kc.android.architecture.samples.movies.models
 
-import java.util.*
+import java.util.Date
 
 data class Movie(
     val id: Int,

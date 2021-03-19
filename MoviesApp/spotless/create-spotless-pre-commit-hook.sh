@@ -3,9 +3,10 @@
 mkdir -p ../.git/hooks
 echo "#!/bin/bash
 echo \"Running spotless check\"
-cd MoviesApp
-./gradlew spotlessApply
-cd ..
+./MoviesApp/gradlew spotlessApply --daemon
+status=$?
+[ $status -ne 0 ] && exit 1
+exit 0
 " >../.git/hooks/pre-commit
 
-chmod 777 ../.git/hooks/pre-commit
+chmod 755 ../.git/hooks/pre-commit
