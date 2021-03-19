@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:7.0.0-alpha09")
+    implementation("com.android.tools.build:gradle:7.0.0-alpha10")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31")
     implementation("com.diffplug.spotless:spotless-plugin-gradle:5.11.0")
 }

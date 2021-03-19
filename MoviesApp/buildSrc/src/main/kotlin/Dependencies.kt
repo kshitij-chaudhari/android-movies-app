@@ -12,7 +12,7 @@ object App {
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 object Libs {
     const val buildToolsVersion = "30.0.3"
-    const val androidGradlePlugin = "com.android.tools.build:gradle:7.0.0-alpha09"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:7.0.0-alpha10"
 
     object Kotlin {
         const val version = "1.4.30"
