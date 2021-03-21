@@ -4,7 +4,7 @@ object App {
     const val compileSdk = 30
     const val versionCode = 1
     const val versionName = "1.0"
-    const val applicationId = "com.kc.android.architecture.samples.moviesapp"
+    const val applicationId = "com.kc.android.movies.app"
     const val minSdkVersion = 24
     const val targetSdkVersion = 30
 }

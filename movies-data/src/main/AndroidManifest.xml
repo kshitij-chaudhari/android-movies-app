@@ -1,4 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.kc.android.architecture.samples.movies.data">
-
-</manifest>
+<manifest package="com.kc.android.movies.data" />

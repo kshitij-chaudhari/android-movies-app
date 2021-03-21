@@ -50,7 +50,7 @@ dependencies {
 
     // test
     testImplementation(Libs.Junit.junit)
+    implementation(project(":movies-model"))
 
     // modules
-    implementation(project(path = ":movies-data-models"))
 }
