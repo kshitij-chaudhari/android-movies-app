@@ -12,11 +12,9 @@ object App {
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 object Libs {
     const val buildToolsVersion = "30.0.3"
-    const val androidGradlePlugin = "com.android.tools.build:gradle:7.0.0-alpha10"
 
     object Kotlin {
         const val version = "1.4.30"
-        const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
     }
 
@@ -44,7 +42,6 @@ object Libs {
 
         object Hilt {
             const val version = "2.33-beta"
-            const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$version"
             const val compiler = "com.google.dagger:hilt-compiler:$version"
             const val android = "com.google.dagger:hilt-android:$version"
         }
@@ -97,7 +94,6 @@ object Libs {
 
     object Spotless {
         const val version = "5.11.0"
-        const val gradlePlugin = "com.diffplug.spotless:spotless-plugin-gradle:$version"
     }
 
     object KtLint {

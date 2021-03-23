@@ -8,8 +8,36 @@ repositories {
     mavenCentral()
 }
 
+/**
+ * [com.kc.android.architecture.samples.moviesapp.Libs] cannot be accessed in
+ * buildSrc/build.gradle. So defining Plugins specific constants here.
+ *
+ * Some of the version_numbers like hilt needs to be managed
+ * here as well as in [com.kc.android.architecture.samples.moviesapp.Libs]
+ */
+object Plugins {
+    object Versions {
+        const val android = "7.0.0-alpha10"
+        const val kotlin = "1.4.30"
+        const val spotless = "5.11.0"
+        const val hilt = "2.33-beta"
+    }
+    const val android = "com.android.tools.build:gradle:${Versions.android}"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val spotless = "com.diffplug.spotless:spotless-plugin-gradle:${Versions.spotless}"
+    const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
+}
+
+/**
+ * Mainly custom plugins specific dependencies are only needed here to compile them.
+ * App specific plugins like android-gradle-plugin and kotlin-gradle-plugin can still go
+ * inside the app-level build.gradle.
+ *
+ * All plugins are kept here to manage plugins just at this one place.
+ */
 dependencies {
-    implementation("com.android.tools.build:gradle:7.0.0-alpha10")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30")
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:5.11.0")
+    implementation(Plugins.android)
+    implementation(Plugins.kotlin)
+    implementation(Plugins.spotless)
+//    implementation(Plugins.hilt)
 }

@@ -21,11 +21,12 @@
       "groupIds": [],
       "strokeSharpness": "sharp",
       "seed": 988348918,
-      "version": 269,
-      "versionNonce": 1774864490,
+      "version": 270,
+      "versionNonce": 1520180342,
       "isDeleted": false,
       "boundElementIds": [
-        "zHAM-vYzCJZqEO5swj0A1"
+        "zHAM-vYzCJZqEO5swj0A1",
+        "7bb-SkjKAEz08m2TlEcvZ"
       ]
     },
     {
@@ -46,11 +47,12 @@
       "groupIds": [],
       "strokeSharpness": "sharp",
       "seed": 2126157930,
-      "version": 343,
-      "versionNonce": 1693013750,
+      "version": 345,
+      "versionNonce": 608958198,
       "isDeleted": false,
       "boundElementIds": [
-        "6LcLzHIE_slv6f3gotOjr"
+        "6LcLzHIE_slv6f3gotOjr",
+        "7bb-SkjKAEz08m2TlEcvZ"
       ]
     },
     {
@@ -869,6 +871,52 @@
         "elementId": "Z30fi-TKp6Sl9af6fSjjF",
         "focus": 0.7653664467170453,
         "gap": 3.556976318359375
+      },
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "7bb-SkjKAEz08m2TlEcvZ",
+      "type": "arrow",
+      "x": 917.5337677001954,
+      "y": 357.7405319213867,
+      "width": 2.4553680419921875,
+      "height": 63.87641906738281,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "strokeSharpness": "round",
+      "seed": 318007466,
+      "version": 63,
+      "versionNonce": 203767978,
+      "isDeleted": false,
+      "boundElementIds": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          2.4553680419921875,
+          63.87641906738281
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": {
+        "elementId": "HVc7Tmcy4YSxYC_rJebqw",
+        "focus": 0.07219789913074287,
+        "gap": 5.985774993896484
+      },
+      "endBinding": {
+        "elementId": "FcHtjR7M1T8rMrhKOlxOW",
+        "focus": 0.016079031817342056,
+        "gap": 7.635154724121094
       },
       "startArrowhead": null,
       "endArrowhead": "arrow"
