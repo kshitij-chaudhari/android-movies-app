@@ -59,10 +59,6 @@ dependencies {
     implementation(Libs.AndroidX.Lifecycle.runtimeKtx)
     implementation(Libs.AndroidX.Activity.compose)
 
-    // hilt
-//    implementation Libs.AndroidX.Hilt.android
-//    kapt Libs.AndroidX.Hilt.compiler
-
     // compose
     implementation(Libs.AndroidX.Compose.ui)
     implementation(Libs.AndroidX.Compose.uiTooling)

@@ -39,5 +39,5 @@ dependencies {
     implementation(Plugins.android)
     implementation(Plugins.kotlin)
     implementation(Plugins.spotless)
-//    implementation(Plugins.hilt)
+    implementation(Plugins.hilt)
 }

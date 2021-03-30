@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'Use Case
+interface MoviesUseCase {
+    + fetchPopularMovies() : Flow<Response<Movie>>
+}
+
+'Repository
+interface MoviesRepository {
+    + fetchPopularMovies() : Flow<Response<Movie>>
+}
+
+'Remote Data Source
+interface MoviesRemoteDataRepository {
+    + fetchMovies() : Flow<Response<Movie>>
+}
+
+'Remote Service
+interface MoviesService {
+    + fetchMovies() : Flow<Response<Movie>>
+}
+
+'Local Data Source
+interface MoviesLocalDataRepository {
+    + storePopularMovies(movies: Set<Movies>)
+    + fetchPopularMovies() : Flow<Set<Movie>>
+}
+
+'DAO
+interface MoviesDAO {
+    + storeMovies(movies: Set<Movies>)
+    + fetchPopularMovies() : Flow<Set<Movie>>
+}
+
+
+@enduml

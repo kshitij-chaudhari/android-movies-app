@@ -3,7 +3,9 @@ import com.kc.android.architecture.samples.moviesapp.Libs
 
 plugins {
     id("com.android.library")
-    kotlin("android")
+    id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -50,7 +52,18 @@ dependencies {
 
     // test
     testImplementation(Libs.Junit.junit)
-    implementation(project(":movies-model"))
+
+    // hilt
+    implementation(Libs.Dagger.Hilt.android)
+    kapt(Libs.Dagger.Hilt.compiler)
+
+    // ok-http
+    implementation(Libs.OkHttp3.loggingInterceptor)
+
+    // retrofit
+    implementation(Libs.Retrofit2.retrofit)
+    implementation(Libs.Retrofit2.gsonConverter)
 
     // modules
+    implementation(project(":movies-model"))
 }

@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+'autonumber
+activate MoviesUseCase
+    MoviesUseCase -> MoviesRepository : fetchPopularMovies()
+    activate MoviesRepository
+
+        'Fetch From Remote
+        MoviesRepository -> MoviesRemoteDataSource : fetchPopularMovies()
+        activate MoviesRemoteDataSource
+            MoviesRemoteDataSource -> MoviesService : fetchPopularMovies()
+            activate MoviesService
+                MoviesRemoteDataSource <-- MoviesService : Flow<Response<Movie>>
+            deactivate MoviesService
+            MoviesRepository <-- MoviesRemoteDataSource : Flow<Response<Movie>>
+        deactivate MoviesRemoteDataSource
+
+        'Store In Local
+        MoviesRepository -> MoviesLocalDataSource : storePopularMovies()
+        activate MoviesLocalDataSource
+            MoviesLocalDataSource -> MoviesDAO : storeMovies()
+            activate MoviesDAO
+            deactivate MoviesDAO
+        deactivate MoviesLocalDataSource
+
+        'Fetch from DB
+        MoviesRepository -> MoviesLocalDataSource : fetchPopularMovies()
+        activate MoviesLocalDataSource
+            MoviesLocalDataSource -> MoviesDAO : fetchPopularMovies()
+            activate MoviesDAO
+                MoviesLocalDataSource <-- MoviesDAO : Flow<List<Movie>>
+            deactivate MoviesDAO
+            MoviesRepository <-- MoviesLocalDataSource : Flow<List<Movie>>
+        deactivate MoviesLocalDataSource
+
+        MoviesUseCase <-- MoviesRepository : Flow<Response<Movie>>
+    deactivate MoviesRepository
+deactivate MoviesUseCase
+@enduml

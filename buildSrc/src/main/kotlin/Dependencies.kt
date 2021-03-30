@@ -40,12 +40,6 @@ object Libs {
             const val appcompat = "androidx.appcompat:appcompat:1.2.0"
         }
 
-        object Hilt {
-            const val version = "2.33-beta"
-            const val compiler = "com.google.dagger:hilt-compiler:$version"
-            const val android = "com.google.dagger:hilt-android:$version"
-        }
-
         object Compose {
             const val version = "1.0.0-beta01"
             const val lifecycleComposeVersion = "1.0.0-alpha03"
@@ -87,6 +81,14 @@ object Libs {
         }
     }
 
+    object Dagger {
+        object Hilt {
+            const val version = "2.33-beta"
+            const val compiler = "com.google.dagger:hilt-compiler:$version"
+            const val android = "com.google.dagger:hilt-android:$version"
+        }
+    }
+
     object Junit {
         const val version = "4.13.2"
         const val junit = "junit:junit:$version"
@@ -99,5 +101,21 @@ object Libs {
     object KtLint {
         const val version = "0.40.0"
         const val ktLint = "com.pinterest:ktlint:$version"
+    }
+
+    object Gson {
+        const val version = "2.6.0"
+        const val gson = "com.google.code.gson:gson:$version"
+    }
+
+    object OkHttp3 {
+        const val version = "3.14.9"
+        const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
+    }
+
+    object Retrofit2 {
+        const val version = "2.9.0"
+        const val retrofit = "com.squareup.retrofit2:retrofit:$version"
+        const val gsonConverter = "com.squareup.retrofit2:converter-gson:$version"
     }
 }
