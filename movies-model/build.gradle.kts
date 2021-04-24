@@ -3,7 +3,7 @@ import com.kc.android.architecture.samples.moviesapp.Libs
 
 plugins {
     id("com.android.library")
-    kotlin("android")
+    id("kotlin-android")
 }
 
 android {

@@ -36,8 +36,8 @@ object Libs {
         }
 
         object AppCompat {
-            const val version = "1.2.0"
-            const val appcompat = "androidx.appcompat:appcompat:1.2.0"
+            const val version = "1.3.0-rc01"
+            const val appcompat = "androidx.appcompat:appcompat:$version"
         }
 
         object Compose {

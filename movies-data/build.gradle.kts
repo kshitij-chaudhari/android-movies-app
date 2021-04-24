@@ -43,27 +43,27 @@ android {
 
 dependencies {
     // androidx
-    implementation(Libs.AndroidX.Core.coreKtx)
-    implementation(Libs.AndroidX.AppCompat.appcompat)
+    api(Libs.AndroidX.Core.coreKtx)
+    api(Libs.AndroidX.AppCompat.appcompat)
 
     // coroutines
-    implementation(Libs.KotlinX.CoroutinesCore)
-    implementation(Libs.KotlinX.CoroutinesAndroid)
+    api(Libs.KotlinX.CoroutinesCore)
+    api(Libs.KotlinX.CoroutinesAndroid)
 
     // test
-    testImplementation(Libs.Junit.junit)
+    testApi(Libs.Junit.junit)
 
     // hilt
-    implementation(Libs.Dagger.Hilt.android)
+    api(Libs.Dagger.Hilt.android)
     kapt(Libs.Dagger.Hilt.compiler)
 
     // ok-http
-    implementation(Libs.OkHttp3.loggingInterceptor)
+    api(Libs.OkHttp3.loggingInterceptor)
 
     // retrofit
-    implementation(Libs.Retrofit2.retrofit)
-    implementation(Libs.Retrofit2.gsonConverter)
+    api(Libs.Retrofit2.retrofit)
+    api(Libs.Retrofit2.gsonConverter)
 
     // modules
-    implementation(project(":movies-model"))
+    api(project(":movies-model"))
 }

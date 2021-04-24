@@ -3,8 +3,17 @@
  */
 package com.kc.android.movies.data.remote
 
-import com.kc.android.movies.models.Movie
+import com.kc.android.movies.data.models.MoviesResponse
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Headers
 
 interface MoviesService {
-    suspend fun fetchPopularMovies(): List<Movie>
+    companion object {
+        const val BASE_URL = "https://api.themoviedb.org/3/"
+    }
+
+    @Headers("Content-Type: application/json;charset=UTF-8")
+    @GET("movie/popular")
+    suspend fun fetchPopularMovies(): Response<MoviesResponse>
 }

@@ -3,9 +3,9 @@ import com.kc.android.architecture.samples.moviesapp.Libs
 
 plugins {
     id("com.android.application")
-    kotlin("android")
-    kotlin("kapt")
-//    id "dagger.hilt.android.plugin"
+    id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -20,6 +20,9 @@ android {
         applicationId = App.applicationId
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        //TODO remove hard coded key and accept from project properties
+        buildConfigField("String","TMDB_API_KEY", "\"f78bc3306d34267e7109925ef36f2d21\"")
     }
 
     buildTypes {
@@ -70,6 +73,10 @@ dependencies {
     implementation(Libs.AndroidX.Compose.runtimeLiveData)
     implementation(Libs.AndroidX.Compose.runtimeRxJava2)
 
+    // hilt
+    implementation(Libs.Dagger.Hilt.android)
+    kapt(Libs.Dagger.Hilt.compiler)
+
     // test
     testImplementation(Libs.Junit.junit)
 
@@ -77,4 +84,7 @@ dependencies {
     androidTestImplementation(Libs.AndroidX.Test.Ext.junit)
     androidTestImplementation(Libs.AndroidX.Test.Espresso.core)
     androidTestImplementation(Libs.AndroidX.Compose.uiTestJunit4)
+
+    // modules
+    implementation(project(":movies-data"))
 }
