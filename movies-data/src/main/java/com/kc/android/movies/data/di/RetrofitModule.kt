@@ -1,3 +1,6 @@
+/*
+ * Copyright 2021 Kshitij Chaudhari
+ */
 package com.kc.android.movies.data.di
 
 import com.kc.android.movies.data.TmdbConfigurator
@@ -17,12 +20,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitModule {
 
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit
-        = Retrofit.Builder()
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
+    }
 
     @Provides
     fun provideOkHttpClient(
@@ -37,7 +41,9 @@ class RetrofitModule {
     }
 
     @Provides
-    fun provideLoggingInterceptor() = HttpLoggingInterceptor()
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+        return HttpLoggingInterceptor()
+    }
 
     @Provides
     fun provideTmdbOkHttpInterceptor(tmdbConfigurator: TmdbConfigurator = TmdbConfigurator()) =

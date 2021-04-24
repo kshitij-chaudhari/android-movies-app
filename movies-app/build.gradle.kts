@@ -21,8 +21,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        //TODO remove hard coded key and accept from project properties
-        buildConfigField("String","TMDB_API_KEY", "\"f78bc3306d34267e7109925ef36f2d21\"")
+        // TODO remove hard coded key and accept from project properties
+        buildConfigField("String", "TMDB_API_KEY", "\"f78bc3306d34267e7109925ef36f2d21\"")
     }
 
     buildTypes {

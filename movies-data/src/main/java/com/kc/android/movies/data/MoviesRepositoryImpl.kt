@@ -4,10 +4,9 @@
 package com.kc.android.movies.data
 
 import com.kc.android.movies.data.models.ErrorType
-import com.kc.android.movies.data.remote.MoviesRemoteDataSource
-import com.kc.android.movies.data.models.Movie
 import com.kc.android.movies.data.models.MoviesResponse
 import com.kc.android.movies.data.models.Resource
+import com.kc.android.movies.data.remote.MoviesRemoteDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow

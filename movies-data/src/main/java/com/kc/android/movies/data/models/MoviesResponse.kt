@@ -1,3 +1,6 @@
+/*
+ * Copyright 2021 Kshitij Chaudhari
+ */
 package com.kc.android.movies.data.models
 
 import com.google.gson.annotations.SerializedName

@@ -1,3 +1,6 @@
+/*
+ * Copyright 2021 Kshitij Chaudhari
+ */
 package com.kc.android.movies.app.di
 
 import com.kc.android.movies.app.BuildConfig
@@ -11,6 +14,7 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 class AppModules {
     @Provides
-    fun provideTmdbConfigurator(): TmdbConfigurator
-        = TmdbConfigurator(BuildConfig.TMDB_API_KEY)
+    fun provideTmdbConfigurator(): TmdbConfigurator {
+        return TmdbConfigurator(BuildConfig.TMDB_API_KEY)
+    }
 }
