@@ -89,6 +89,16 @@ object Libs {
         }
     }
 
+    object Gson {
+        const val version = "2.6.0"
+        const val gson = "com.google.code.gson:gson:$version"
+    }
+
+    object Accompanist {
+        const val version = "0.8.1"
+        const val accompanist = "com.google.accompanist:accompanist-coil:$version"
+    }
+
     object Junit {
         const val version = "4.13.2"
         const val junit = "junit:junit:$version"
@@ -103,11 +113,6 @@ object Libs {
         const val ktLint = "com.pinterest:ktlint:$version"
     }
 
-    object Gson {
-        const val version = "2.6.0"
-        const val gson = "com.google.code.gson:gson:$version"
-    }
-
     object OkHttp3 {
         const val version = "3.14.9"
         const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
@@ -117,5 +122,10 @@ object Libs {
         const val version = "2.9.0"
         const val retrofit = "com.squareup.retrofit2:retrofit:$version"
         const val gsonConverter = "com.squareup.retrofit2:converter-gson:$version"
+    }
+
+    object Coil {
+        const val version = "1.2.0"
+        const val coil = "io.coil-kt:coil:$version"
     }
 }

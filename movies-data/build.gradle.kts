@@ -63,7 +63,4 @@ dependencies {
     // retrofit
     api(Libs.Retrofit2.retrofit)
     api(Libs.Retrofit2.gsonConverter)
-
-    // modules
-    api(project(":movies-model"))
 }

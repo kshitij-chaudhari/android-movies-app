@@ -13,4 +13,3 @@ rootProject.name = "MoviesApp"
 
 include(":movies-app")
 include(":movies-data")
-include(":movies-model")

@@ -3,6 +3,7 @@
  */
 package com.kc.android.movies.data.models
 
+import com.google.gson.annotations.SerializedName
 import java.util.Date
 
 data class Movie(
@@ -10,7 +11,7 @@ data class Movie(
     val title: String,
     val overview: String,
     val popularity: Float,
-    val releaseDate: Date,
-    val posterImage: String,
-    val backdropImage: String
+    @SerializedName("release_date") val releaseDate: Date,
+    @SerializedName("poster_path") val posterImagePath: String,
+    @SerializedName("backdrop_path") val backdropImagePath: String
 )
