@@ -11,7 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.kc.android.movies.app.ui.view.MovieListItem
+import com.kc.android.movies.app.ui.screen.popularmovies.views.MovieListItem
 
 @Preview
 @Composable
