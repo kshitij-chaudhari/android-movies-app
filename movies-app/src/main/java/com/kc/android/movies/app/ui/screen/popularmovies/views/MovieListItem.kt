@@ -20,14 +20,13 @@ import java.util.Date
 fun Preview_MovieListItem() {
     val movie = Movie(
         id = 0,
-        title = "Raya and the Last Dragon",
-        overview = "In a realm known as Kumandra, " +
-            "a re-imagined Earth inhabited by " +
-            "an ancient civilization, a warrior " +
-            "named Raya is determined to find " +
-            "the last dragon.",
-        popularity = 0f,
-        voteAverage = 7.8f,
+        title = "Avengers: Infinity War",
+        overview = "The Avengers and their allies must be willing to " +
+            "sacrifice all in an attempt to defeat the powerful " +
+            "Thanos before his blitz of devastation and ruin " +
+            "puts an end to the universe.",
+        popularity = 2001.5f,
+        voteAverage = 8.4f,
         releaseDate = Date(),
         posterImagePath = "",
         backdropImagePath = ""
