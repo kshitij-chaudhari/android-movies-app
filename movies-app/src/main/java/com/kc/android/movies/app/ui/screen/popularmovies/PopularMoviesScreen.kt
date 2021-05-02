@@ -23,8 +23,8 @@ fun PopularMoviesScreen_Preview() {
 fun PopularMoviesScreen(popularMoviesViewModel: PopularMoviesViewModel = viewModel()) {
     val movies by popularMoviesViewModel.movies.observeAsState()
     LazyColumn {
-        items(movies ?:  emptyList()) { movie ->
-            MovieListItem(movie = movie, onclick = {/*TODO*/})
+        items(movies ?: emptyList()) { movie ->
+            MovieListItem(movie = movie, onclick = { /*TODO*/ })
             Divider()
         }
     }

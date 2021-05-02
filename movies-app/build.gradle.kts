@@ -77,7 +77,7 @@ dependencies {
     implementation(Libs.Dagger.Hilt.android)
     kapt(Libs.Dagger.Hilt.compiler)
 
-    //Accompanist
+    // Accompanist
     implementation(Libs.Accompanist.accompanist)
     implementation(Libs.Coil.coil)
 
