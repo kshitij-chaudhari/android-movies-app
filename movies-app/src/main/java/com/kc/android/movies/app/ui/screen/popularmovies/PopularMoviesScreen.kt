@@ -11,6 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.kc.android.movies.app.ui.common.view.FullScreenCircularLoadingSpinner
 import com.kc.android.movies.app.ui.screen.popularmovies.views.MovieListItem
 
 @Preview
@@ -21,11 +22,15 @@ fun PopularMoviesScreen_Preview() {
 
 @Composable
 fun PopularMoviesScreen(popularMoviesViewModel: PopularMoviesViewModel = viewModel()) {
-    val movies by popularMoviesViewModel.movies.observeAsState()
-    LazyColumn {
-        items(movies ?: emptyList()) { movie ->
-            MovieListItem(movie = movie, onclick = { /*TODO*/ })
-            Divider()
+    val movies by popularMoviesViewModel.movies.observeAsState(initial = emptyList())
+    if (movies.isEmpty()) {
+        FullScreenCircularLoadingSpinner()
+    } else {
+        LazyColumn {
+            items(movies) { movie ->
+                MovieListItem(movie = movie, onclick = { /*TODO*/ })
+                Divider()
+            }
         }
     }
 }
