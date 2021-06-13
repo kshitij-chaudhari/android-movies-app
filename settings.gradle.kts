@@ -5,7 +5,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = uri("https://kotlin.bintray.com/kotlinx") }
+        maven(url = uri("https://kotlin.bintray.com/kotlinx"))
     }
 }
 
