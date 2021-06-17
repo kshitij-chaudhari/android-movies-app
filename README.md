@@ -18,8 +18,10 @@ In case the latest beta version has some known issues, a version lower will be u
 ### Setting up Spotless pre-commit hook
 Spotless is used to format code. To setup the spotless pre-commit hook, execute `./spotless/creat-spotless-pre-commit-hook.sh`
 
-Core Libraries Used
--------------------
+Libraries Used
+--------------
+Below lists the core libraries used in the app.
+
 ### Jetpack Libraries
 * [Compose](https://developer.android.com/jetpack/compose) for UI.
 * [Navigation](https://developer.android.com/guide/navigation) for all the in-app navigation
@@ -28,5 +30,6 @@ Core Libraries Used
 ### Third party libraries
 * [Coroutines](https://developer.android.com/kotlin/coroutines) for async operations.
 * [Retrofit](https://github.com/square/retrofit) for networking.
+* [Coil](https://github.com/coil-kt/coil) for image loading.  
 * [Mockk](https://github.com/mockk/mockk) for mocking.
 * [Robolectric](https://github.com/robolectric/robolectric) for unit testing of android components.
