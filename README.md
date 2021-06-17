@@ -9,6 +9,7 @@ This app uses [TMDB database](https://developers.themoviedb.org/) to fetch movie
 
 ### Getting TMDB API Key
 To use the TMDB API, you will need to setup a free TMDB account and generate V3 API key. See [TMDB Documentation](https://developers.themoviedb.org/3/getting-started/introduction) for instructions.
+Once you obtain the key, add it inside gradle.properties -> `TMDB_API_KEY=<your-tmdb-key>`
 
 Development Instructions
 ------------------------
