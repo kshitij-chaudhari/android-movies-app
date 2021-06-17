@@ -24,7 +24,7 @@ Below lists the core libraries used in the app.
 
 ### Jetpack Libraries
 * [Compose](https://developer.android.com/jetpack/compose) for UI.
-* [Navigation](https://developer.android.com/guide/navigation) for all the in-app navigation
+* [Navigation](https://developer.android.com/guide/navigation) for all the in-app navigation.
 * [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection.
 
 ### Third party libraries
