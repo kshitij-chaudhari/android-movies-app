@@ -21,12 +21,12 @@ Spotless is used to format code. To setup the spotless pre-commit hook, execute 
 Core Libraries Used
 -------------------
 ##### Jetpack Libraries
-[Compose](https://developer.android.com/jetpack/compose) for UI.
-[Navigation](https://developer.android.com/guide/navigation) for all the in-app navigation
-[Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection.
+* [Compose](https://developer.android.com/jetpack/compose) for UI.
+* [Navigation](https://developer.android.com/guide/navigation) for all the in-app navigation
+* [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection.
 
 ##### Third party libraries
-[Coroutines](https://developer.android.com/kotlin/coroutines) for async operations.
-[Retrofit](https://github.com/square/retrofit) for networking.
-[Mockk](https://github.com/mockk/mockk) for mocking.
-[Robolectric](https://github.com/robolectric/robolectric) for unit testing of android components.
+* [Coroutines](https://developer.android.com/kotlin/coroutines) for async operations.
+* [Retrofit](https://github.com/square/retrofit) for networking.
+* [Mockk](https://github.com/mockk/mockk) for mocking.
+* [Robolectric](https://github.com/robolectric/robolectric) for unit testing of android components.
