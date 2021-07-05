@@ -9,12 +9,12 @@ plugins {
 }
 
 android {
-    compileSdk = App.compileSdk
+    compileSdkPreview = App.compileSdk
     buildToolsVersion = Libs.buildToolsVersion
 
     defaultConfig {
         minSdk = App.minSdkVersion
-        targetSdk = App.targetSdkVersion
+        targetSdkPreview = App.targetSdkVersion
         versionCode = App.versionCode
         versionName = App.versionName
         applicationId = App.applicationId

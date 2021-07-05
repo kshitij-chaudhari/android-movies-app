@@ -21,7 +21,7 @@ Spotless is used to format code. To setup the spotless pre-commit hook, execute 
 
 Libraries Used
 --------------
-Below lists the core libraries used in the app.
+Below lists some of the libraries used in the app.
 
 ### Jetpack Libraries
 * [Compose](https://developer.android.com/jetpack/compose) for UI.

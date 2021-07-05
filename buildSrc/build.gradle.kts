@@ -27,9 +27,9 @@ repositories {
  */
 object Plugins {
     object Versions {
-        const val android = "7.0.0-beta03"
-        const val kotlin = "1.4.30"
-        const val spotless = "5.11.0"
+        const val android = "7.1.0-alpha02"
+        const val kotlin = "1.5.10"
+        const val spotless = "5.11.1"
         const val hilt = "HEAD-SNAPSHOT"
     }
     const val android = "com.android.tools.build:gradle:${Versions.android}"
