@@ -30,7 +30,7 @@ object Plugins {
         const val android = "7.1.0-alpha02"
         const val kotlin = "1.5.10"
         const val spotless = "5.11.1"
-        const val hilt = "HEAD-SNAPSHOT"
+        const val hilt = "2.37"
     }
     const val android = "com.android.tools.build:gradle:${Versions.android}"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"

@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">KC Movies</string>
 
-    <string name="error_msg">Failed to load. Error code %1$d</string>
+    <string name="error_msg_unknown_error">Failed to load. Error : %1$s</string>
 </resources>

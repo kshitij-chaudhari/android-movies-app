@@ -44,6 +44,11 @@ dependencies {
     api(Libs.AndroidX.Core.coreKtx)
     api(Libs.AndroidX.AppCompat.appcompat)
 
+    // room
+    api(Libs.AndroidX.Room.roomRuntime)
+    kapt(Libs.AndroidX.Room.roomCompiler)
+    api(Libs.AndroidX.Room.roomKtx)
+
     // coroutines
     api(Libs.KotlinX.CoroutinesCore)
     api(Libs.KotlinX.CoroutinesAndroid)

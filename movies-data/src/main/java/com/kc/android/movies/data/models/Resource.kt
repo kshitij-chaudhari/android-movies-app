@@ -3,8 +3,8 @@
  */
 package com.kc.android.movies.data.models
 
-sealed class Resource<out DATA, out ERROR> {
-    object Loading : Resource<Nothing, Nothing>()
-    data class Success<out DATA>(val data: DATA) : Resource<DATA, Nothing>()
-    data class Error<out ERROR>(val error: ERROR) : Resource<Nothing, ERROR>()
+sealed class Resource<out DATA> {
+    data class Loading<out DATA>(val data: DATA? = null) : Resource<DATA>()
+    data class Success<out DATA>(val data: DATA) : Resource<DATA>()
+    data class Error<out DATA>(val error: Throwable, val data: DATA? = null) : Resource<DATA>()
 }

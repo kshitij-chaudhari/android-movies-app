@@ -11,7 +11,6 @@ import androidx.lifecycle.viewModelScope
 import com.kc.android.movies.app.R
 import com.kc.android.movies.app.ui.MoviesApp
 import com.kc.android.movies.data.MoviesUseCase
-import com.kc.android.movies.data.models.ErrorType
 import com.kc.android.movies.data.models.Movie
 import com.kc.android.movies.data.models.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -47,15 +46,14 @@ class PopularMoviesViewModel @Inject constructor(
                         is Resource.Loading -> _loading.value = true
                         is Resource.Success -> {
                             _loading.value = false
-                            _movies.value = it.data.results
+                            _movies.value = it.data
                         }
                         is Resource.Error -> {
                             _loading.value = false
-                            when (it.error) {
-                                is ErrorType.Unknown ->
-                                    _errorMsg.value =
-                                        getApplication<MoviesApp>().getString(R.string.error_msg, (it.error as ErrorType.Unknown).responseCode)
-                            }
+                            _errorMsg.value = getApplication<MoviesApp>().getString(
+                                R.string.error_msg_unknown_error,
+                                it.error.message
+                            )
                         }
                     }
                 }
