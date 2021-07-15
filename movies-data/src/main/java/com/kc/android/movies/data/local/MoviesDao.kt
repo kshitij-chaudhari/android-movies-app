@@ -3,6 +3,7 @@
  */
 package com.kc.android.movies.data.local
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -14,6 +15,9 @@ import kotlinx.coroutines.flow.Flow
 interface MoviesDao {
     @Query("SELECT * FROM movies")
     fun getAll(): Flow<List<Movie>>
+
+    @Query("SELECT * FROM movies ORDER BY popularity DESC")
+    fun pagingSource(): PagingSource<Int, Movie>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg movies: Movie)

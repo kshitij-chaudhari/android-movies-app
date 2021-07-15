@@ -1,7 +1,7 @@
 /*
  * Copyright 2021 Kshitij Chaudhari
  */
-package com.kc.android.movies.app.ui.screen.popularmovies.views
+package com.kc.android.movies.app.ui.common.view.list
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.height
@@ -16,12 +16,12 @@ import com.google.accompanist.coil.rememberCoilPainter
 
 @Preview
 @Composable
-fun ThumbnailImage() {
-    ThumbnailImage(imagePath = "https://www.iceposter.com/thumbs/MOV_f1bd0097_b.jpg")
+fun Preview_ListThumbnailImage() {
+    ListThumbnailImage(imagePath = "https://www.iceposter.com/thumbs/MOV_f1bd0097_b.jpg")
 }
 
 @Composable
-fun ThumbnailImage(imagePath: String) {
+fun ListThumbnailImage(imagePath: String) {
     Image(
         contentScale = ContentScale.Crop,
         painter = rememberCoilPainter(
@@ -31,8 +31,8 @@ fun ThumbnailImage(imagePath: String) {
         ),
         modifier = Modifier
             .padding(end = 16.dp)
-            .width(112.dp)
-            .height(136.dp),
+            .width(90.dp)
+            .height(90.dp),
         contentDescription = null
     )
 }

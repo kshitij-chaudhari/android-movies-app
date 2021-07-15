@@ -4,6 +4,7 @@
 package com.kc.android.movies.data.di
 
 import com.kc.android.movies.data.TmdbConfigurator
+import com.kc.android.movies.data.remote.CustomGsonConverterFactory
 import com.kc.android.movies.data.remote.MoviesService.Companion.BASE_URL
 import com.kc.android.movies.data.remote.TmdbOkHttpInterceptor
 import dagger.Module
@@ -13,17 +14,19 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 @InstallIn(SingletonComponent::class)
 class RetrofitModule {
 
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    fun provideRetrofit(
+        okHttpClient: OkHttpClient,
+        gsonConverterFactory: CustomGsonConverterFactory
+    ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(gsonConverterFactory.create())
             .client(okHttpClient)
             .build()
     }
@@ -41,11 +44,12 @@ class RetrofitModule {
     }
 
     @Provides
-    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor()
-    }
+    fun provideLoggingInterceptor() = HttpLoggingInterceptor()
 
     @Provides
     fun provideTmdbOkHttpInterceptor(tmdbConfigurator: TmdbConfigurator = TmdbConfigurator()) =
         TmdbOkHttpInterceptor(tmdbConfigurator)
+
+    @Provides
+    fun provideGsonConverterFactory() = CustomGsonConverterFactory()
 }

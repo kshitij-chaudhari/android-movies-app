@@ -3,9 +3,11 @@
  */
 package com.kc.android.movies.data.repo
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import com.kc.android.movies.data.local.MoviesDb
 import com.kc.android.movies.data.remote.MoviesService
-import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 // TODO make internal along with other impls in the module
@@ -15,21 +17,12 @@ class MoviesRepositoryImpl @Inject constructor(
 ) : MoviesRepository {
 
     private val moviesDao = db.moviesDao()
-    override fun getPopularMovies() = networkBoundResource(
-        query = {
-            moviesDao.getAll()
-        },
-        fetch = {
-            delay(1000)
-            service.fetchPopularMovies()
-        },
-        saveFetchResult = { result ->
-            result.body()?.results?.toTypedArray()?.let {
-                moviesDao.insertAll(*it)
-            }
-        },
-        shouldFetch = {
-            it.isEmpty()
-        }
-    )
+
+    @ExperimentalPagingApi
+    override fun getPopularMovies(pageSize: Int) = Pager(
+        config = PagingConfig(pageSize),
+        remoteMediator = PopularMoviesRemoteMediator(db, service)
+    ) {
+        moviesDao.pagingSource()
+    }.flow
 }

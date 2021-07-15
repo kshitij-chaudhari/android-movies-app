@@ -5,6 +5,7 @@ package com.kc.android.movies.app.ui.screen.popularmovies.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -26,7 +27,10 @@ fun Preview_RatingText() {
 
 @Composable
 fun RatingText(rating: Float) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
         Image(
             painter = painterResource(R.drawable.star),
             contentDescription = null,

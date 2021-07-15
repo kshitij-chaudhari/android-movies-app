@@ -9,12 +9,12 @@ plugins {
 }
 
 android {
-    compileSdkPreview = App.compileSdk
+    compileSdk = App.compileSdk
     buildToolsVersion = Libs.buildToolsVersion
 
     defaultConfig {
         minSdk = App.minSdkVersion
-        targetSdkPreview = App.targetSdkVersion
+        targetSdk = App.targetSdkVersion
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -48,6 +48,9 @@ dependencies {
     api(Libs.AndroidX.Room.roomRuntime)
     kapt(Libs.AndroidX.Room.roomCompiler)
     api(Libs.AndroidX.Room.roomKtx)
+
+    // paging
+    api(Libs.AndroidX.Paging.pagingRuntime)
 
     // coroutines
     api(Libs.KotlinX.CoroutinesCore)

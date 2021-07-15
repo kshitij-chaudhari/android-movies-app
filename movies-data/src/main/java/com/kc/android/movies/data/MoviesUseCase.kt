@@ -3,11 +3,11 @@
  */
 package com.kc.android.movies.data
 
+import androidx.paging.PagingData
 import com.kc.android.movies.data.models.Movie
-import com.kc.android.movies.data.models.Resource
 import kotlinx.coroutines.flow.Flow
 
 // TODO investigate is movies-data can be converted to java-library
 interface MoviesUseCase {
-    fun fetchPopularMovies(): Flow<Resource<List<Movie>>>
+    fun getPopularMovies(pageSize: Int): Flow<PagingData<Movie>>
 }

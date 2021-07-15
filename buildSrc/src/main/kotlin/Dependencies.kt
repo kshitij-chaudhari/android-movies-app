@@ -1,12 +1,12 @@
 package com.kc.android.architecture.samples.moviesapp
 
 object App {
-    const val compileSdk = "android-S"
+    const val compileSdk = 30
     const val versionCode = 1
     const val versionName = "1.0"
     const val applicationId = "com.kc.android.movies.app"
     const val minSdkVersion = 28
-    const val targetSdkVersion = "S"
+    const val targetSdkVersion = 30
 }
 
 @Suppress("MemberVisibilityCanBePrivate", "unused")
@@ -85,6 +85,14 @@ object Libs {
             const val roomRuntime = "androidx.room:room-runtime:$version"
             const val roomCompiler = "androidx.room:room-compiler:$version"
             const val roomKtx = "androidx.room:room-ktx:$version"
+        }
+
+        object Paging {
+            const val version = "3.0.0"
+            const val composeVersion = "1.0.0-alpha11"
+            const val pagingRuntime = "androidx.paging:paging-runtime:$version"
+            const val pagingCommon = "androidx.paging:paging-common:$version"
+            const val pagingCompose = "androidx.paging:paging-compose:$composeVersion"
         }
     }
 

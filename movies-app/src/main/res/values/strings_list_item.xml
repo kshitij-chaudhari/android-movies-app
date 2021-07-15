@@ -1,0 +1,4 @@
+<resources>
+    <!-- List Items -->
+    <string name="label_popularity">Popularity : %1$.2f</string>
+</resources>

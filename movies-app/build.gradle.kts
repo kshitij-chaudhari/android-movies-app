@@ -9,12 +9,12 @@ plugins {
 }
 
 android {
-    compileSdkPreview = App.compileSdk
+    compileSdk = App.compileSdk
     buildToolsVersion = Libs.buildToolsVersion
 
     defaultConfig {
         minSdk = App.minSdkVersion
-        targetSdkPreview = App.targetSdkVersion
+        targetSdk = App.targetSdkVersion
         versionCode = App.versionCode
         versionName = App.versionName
         applicationId = App.applicationId
@@ -72,6 +72,7 @@ dependencies {
     implementation(Libs.AndroidX.Compose.lifecycleViewModelCompose)
     implementation(Libs.AndroidX.Compose.runtimeLiveData)
     implementation(Libs.AndroidX.Compose.runtimeRxJava2)
+    implementation(Libs.AndroidX.Paging.pagingCompose)
 
     // hilt
     implementation(Libs.Dagger.Hilt.android)
