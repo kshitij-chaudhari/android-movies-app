@@ -9,10 +9,12 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModules {
+object AppModules {
+    @Singleton
     @Provides
     fun provideTmdbConfigurator(): TmdbConfigurator {
         return TmdbConfigurator(BuildConfig.TMDB_API_KEY)

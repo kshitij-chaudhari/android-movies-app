@@ -14,11 +14,12 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class RetrofitModule {
-
+object RetrofitModule {
+    @Singleton
     @Provides
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
@@ -31,6 +32,7 @@ class RetrofitModule {
             .build()
     }
 
+    @Singleton
     @Provides
     fun provideOkHttpClient(
         httpLoggingInterceptor: HttpLoggingInterceptor,
@@ -43,13 +45,16 @@ class RetrofitModule {
             .build()
     }
 
+    @Singleton
     @Provides
     fun provideLoggingInterceptor() = HttpLoggingInterceptor()
 
+    @Singleton
     @Provides
     fun provideTmdbOkHttpInterceptor(tmdbConfigurator: TmdbConfigurator = TmdbConfigurator()) =
         TmdbOkHttpInterceptor(tmdbConfigurator)
 
+    @Singleton
     @Provides
     fun provideGsonConverterFactory() = CustomGsonConverterFactory()
 }

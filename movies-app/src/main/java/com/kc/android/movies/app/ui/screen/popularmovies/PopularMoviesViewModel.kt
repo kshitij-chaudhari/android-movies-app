@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PopularMoviesViewModel @Inject constructor(
     application: Application,
-    private val moviesUseCase: MoviesUseCase
+    moviesUseCase: MoviesUseCase,
 ) : AndroidViewModel(application) {
 
     val movies = moviesUseCase.getPopularMovies(50)

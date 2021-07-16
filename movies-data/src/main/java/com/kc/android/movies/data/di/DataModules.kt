@@ -17,22 +17,27 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class DataModules {
+object DataModules {
+    @Singleton
     @Provides
     fun provideMoviesUseCase(repository: MoviesRepository): MoviesUseCase =
         MoviesUseCaseImpl(repository)
 
+    @Singleton
     @Provides
     fun provideMoviesRepository(db: MoviesDb, service: MoviesService): MoviesRepository =
         MoviesRepositoryImpl(db, service)
 
+    @Singleton
     @Provides
     fun provideMoviesService(retrofit: Retrofit): MoviesService =
         retrofit.create(MoviesService::class.java)
 
+    @Singleton
     @Provides
     fun provideMoviesDb(@ApplicationContext context: Context) =
         Room.databaseBuilder(context, MoviesDb::class.java, "movies_db")
