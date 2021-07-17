@@ -3,7 +3,6 @@
  */
 package com.kc.android.movies.data.di
 
-import com.kc.android.movies.data.TmdbConfigurator
 import com.kc.android.movies.data.remote.CustomGsonConverterFactory
 import com.kc.android.movies.data.remote.MoviesService.Companion.BASE_URL
 import com.kc.android.movies.data.remote.TmdbOkHttpInterceptor
@@ -14,6 +13,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -51,8 +51,8 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun provideTmdbOkHttpInterceptor(tmdbConfigurator: TmdbConfigurator = TmdbConfigurator()) =
-        TmdbOkHttpInterceptor(tmdbConfigurator)
+    fun provideTmdbOkHttpInterceptor(@Named("tmdb-api-key") tmdbApiKey: String) =
+        TmdbOkHttpInterceptor(tmdbApiKey)
 
     @Singleton
     @Provides
