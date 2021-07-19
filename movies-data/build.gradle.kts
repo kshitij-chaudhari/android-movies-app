@@ -29,20 +29,34 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         allWarningsAsErrors = true
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/AL2.0")
+        resources.excludes.add("META-INF/LGPL2.1")
+    }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            isReturnDefaultValues = true
+        }
     }
 }
 
 dependencies {
     // androidx
-    api(Libs.AndroidX.Core.coreKtx)
-    api(Libs.AndroidX.AppCompat.appcompat)
+    api(Libs.AndroidX.coreKtx)
+    api(Libs.AndroidX.appcompat)
 
     // room
     api(Libs.AndroidX.Room.roomRuntime)
@@ -53,20 +67,30 @@ dependencies {
     api(Libs.AndroidX.Paging.pagingRuntime)
 
     // coroutines
-    api(Libs.KotlinX.CoroutinesCore)
-    api(Libs.KotlinX.CoroutinesAndroid)
-
-    // test
-    testApi(Libs.Junit.junit)
+    api(Libs.Kotlin.Coroutines.core)
+    api(Libs.Kotlin.Coroutines.android)
 
     // hilt
-    api(Libs.Dagger.Hilt.android)
-    kapt(Libs.Dagger.Hilt.compiler)
+    api(Libs.Google.Hilt.android)
+    kapt(Libs.Google.Hilt.compiler)
 
-    // ok-http
+    // ok-http & retrofit
     api(Libs.OkHttp3.loggingInterceptor)
-
-    // retrofit
     api(Libs.Retrofit2.retrofit)
     api(Libs.Retrofit2.gsonConverter)
+
+    // test
+    testImplementation(Libs.Test.testCoreKtx)
+    testImplementation(Libs.Test.archCoreTesting)
+    testImplementation(Libs.Test.junit)
+    testImplementation(Libs.Test.androidxJunitKtx)
+    testImplementation(Libs.Test.mockk)
+    testImplementation(Libs.Test.truth)
+    testImplementation(Libs.Test.robolectric)
+
+    testImplementation(Libs.AndroidX.Room.testing)
+    testImplementation(Libs.Kotlin.Coroutines.test)
+    testImplementation(Libs.Google.Hilt.androidTesting)
+
+    kaptTest(Libs.AndroidX.Room.roomCompiler)
 }

@@ -17,11 +17,12 @@ interface MoviesDao {
     fun getAll(): Flow<List<Movie>>
 
     @Query("SELECT * FROM movies ORDER BY popularity DESC")
+    // TODO should this be suspend?
     fun pagingSource(): PagingSource<Int, Movie>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg movies: Movie)
+    suspend fun insertAll(vararg movies: Movie)
 
     @Query("DELETE FROM movies")
-    fun deleteAll()
+    suspend fun deleteAll()
 }

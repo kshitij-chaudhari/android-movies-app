@@ -6,16 +6,6 @@ plugins {
 repositories {
     google()
     mavenCentral()
-    /*
-     FIXME Current version(2.33-beta) of Hilt gradle plugin fails to compile because of known issue with AGP 7.0.0-alpha/beta versions.
-      Details of the issue here - https://github.com/google/dagger/issues/2631
-      Remove below maven entry once newer version of Hilt compiles fine with latest AGP.
-     */
-    maven(url = "https://oss.sonatype.org/content/repositories/snapshots") {
-        content {
-            includeModule("com.google.dagger", "hilt-android-gradle-plugin")
-        }
-    }
 }
 
 /**

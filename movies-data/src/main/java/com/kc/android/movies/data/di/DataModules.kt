@@ -3,8 +3,6 @@
  */
 package com.kc.android.movies.data.di
 
-import android.content.Context
-import androidx.room.Room
 import com.kc.android.movies.data.MoviesUseCase
 import com.kc.android.movies.data.MoviesUseCaseImpl
 import com.kc.android.movies.data.local.MoviesDb
@@ -14,7 +12,6 @@ import com.kc.android.movies.data.repo.MoviesRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import javax.inject.Singleton
@@ -36,10 +33,4 @@ object DataModules {
     @Provides
     fun provideMoviesService(retrofit: Retrofit): MoviesService =
         retrofit.create(MoviesService::class.java)
-
-    @Singleton
-    @Provides
-    fun provideMoviesDb(@ApplicationContext context: Context) =
-        Room.databaseBuilder(context, MoviesDb::class.java, "movies_db")
-            .build()
 }

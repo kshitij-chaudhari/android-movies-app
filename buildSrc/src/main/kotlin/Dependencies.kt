@@ -14,70 +14,40 @@ object Libs {
     const val buildToolsVersion = "30.0.3"
 
     object Kotlin {
-        const val version = "1.5.10"
-        const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
-    }
+        const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.10"
 
-    object KotlinX {
-        const val version = "1.4.2"
-        const val CoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
-        const val CoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
-    }
+        object Coroutines {
+            const val version = "1.5.0"
+            const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
+            const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
 
-    object Android {
-        const val version = "1.4.0"
-        const val material = "com.google.android.material:material:$version"
+            const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
+        }
     }
 
     object AndroidX {
-        object Core {
-            const val version = "1.6.0"
-            const val coreKtx = "androidx.core:core-ktx:$version"
-        }
-
-        object AppCompat {
-            const val version = "1.4.0-alpha03"
-            const val appcompat = "androidx.appcompat:appcompat:$version"
-        }
+        const val coreKtx = "androidx.core:core-ktx:1.6.0"
+        const val appcompat = "androidx.appcompat:appcompat:1.4.0-alpha03"
+        const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
 
         object Compose {
             const val version = "1.0.0-rc01"
-            const val lifecycleComposeVersion = "1.0.0-alpha07"
 
             const val ui = "androidx.compose.ui:ui:$version"
             const val uiTooling = "androidx.compose.ui:ui-tooling:$version"
             const val foundation = "androidx.compose.foundation:foundation:$version"
             const val material = "androidx.compose.material:material:$version"
             const val materialIconsCore = "androidx.compose.material:material-icons-core:$version"
-            const val materialIconsExtended =
-                "androidx.compose.material:material-icons-extended:$version"
-            const val lifecycleViewModelCompose =
-                "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleComposeVersion"
+            const val materialIconsExtended = "androidx.compose.material:material-icons-extended:$version"
             const val runtimeLiveData = "androidx.compose.runtime:runtime-livedata:$version"
             const val runtimeRxJava2 = "androidx.compose.runtime:runtime-rxjava2:$version"
+
             const val uiTestJunit4 = "androidx.compose.ui:ui-test-junit4:$version"
-        }
 
-        object Test {
-            object Ext {
-                const val version = "1.1.3"
-                const val junit = "androidx.test.ext:junit:$version"
-            }
-
-            object Espresso {
-                const val version = "3.4.0"
-                const val core = "androidx.test.espresso:espresso-core:$version"
-            }
-        }
-
-        object Lifecycle {
-            const val version = "2.3.1"
-            const val runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:$version"
-        }
-
-        object Activity {
-            const val version = "1.3.0-rc01"
-            const val compose = "androidx.activity:activity-compose:$version"
+            // compose support for other jetpack components
+            const val lifecycleViewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
+            const val activityCompose = "androidx.activity:activity-compose:1.3.0-rc01"
+            const val pagingCompose = "androidx.paging:paging-compose:1.0.0-alpha11"
         }
 
         object Room {
@@ -85,6 +55,8 @@ object Libs {
             const val roomRuntime = "androidx.room:room-runtime:$version"
             const val roomCompiler = "androidx.room:room-compiler:$version"
             const val roomKtx = "androidx.room:room-ktx:$version"
+
+            const val testing = "androidx.room:room-testing:$version"
         }
 
         object Paging {
@@ -92,45 +64,25 @@ object Libs {
             const val composeVersion = "1.0.0-alpha11"
             const val pagingRuntime = "androidx.paging:paging-runtime:$version"
             const val pagingCommon = "androidx.paging:paging-common:$version"
-            const val pagingCompose = "androidx.paging:paging-compose:$composeVersion"
         }
     }
 
-    object Dagger {
+    object Google {
+        const val material = "com.google.android.material:material:1.4.0"
+
+        const val gson = "com.google.code.gson:gson:2.6.0"
+
         object Hilt {
             const val version = "2.37"
             const val compiler = "com.google.dagger:hilt-compiler:$version"
             const val android = "com.google.dagger:hilt-android:$version"
+
+            const val androidTesting = "com.google.dagger:hilt-android-testing:$version"
         }
     }
 
-    object Gson {
-        const val version = "2.6.0"
-        const val gson = "com.google.code.gson:gson:$version"
-    }
-
-    object Accompanist {
-        const val version = "0.13.0"
-        const val accompanist = "com.google.accompanist:accompanist-coil:$version"
-    }
-
-    object Junit {
-        const val version = "4.13.2"
-        const val junit = "junit:junit:$version"
-    }
-
-    object Spotless {
-        const val version = "5.11.0"
-    }
-
-    object KtLint {
-        const val version = "0.40.0"
-        const val ktLint = "com.pinterest:ktlint:$version"
-    }
-
     object OkHttp3 {
-        const val version = "3.14.9"
-        const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
+        const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:3.14.9"
     }
 
     object Retrofit2 {
@@ -140,7 +92,28 @@ object Libs {
     }
 
     object Coil {
-        const val version = "1.2.0"
-        const val coil = "io.coil-kt:coil:$version"
+        const val coil = "io.coil-kt:coil:1.2.0"
+        const val accompanist = "com.google.accompanist:accompanist-coil:0.13.0"
+    }
+
+    object Test {
+        const val junit = "junit:junit:4.13.2"
+        const val androidxJunitKtx = "androidx.test.ext:junit-ktx:1.1.3"
+
+        const val testCoreKtx = "androidx.test:core-ktx:1.4.0"
+        const val archCoreTesting = "androidx.arch.core:core-testing:2.1.0"
+
+        const val truth = "com.google.truth:truth:1.1.3"
+
+        const val mockk = "io.mockk:mockk:1.12.0"
+
+        const val robolectric = "org.robolectric:robolectric:4.6.1"
+
+        const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
+    }
+
+    object KtLint {
+        const val version = "0.40.0"
+        const val ktLint = "com.pinterest:ktlint:$version"
     }
 }
