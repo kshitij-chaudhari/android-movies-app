@@ -26,7 +26,6 @@ inline fun <ResultType, RequestType> networkBoundResource(
 
         try {
             saveFetchResult(fetch())
-            // TODO - handle returning error case when fetch fails
             query().map { Resource.Success(it) }
         } catch (throwable: Throwable) {
             Log.e(this::class.simpleName, throwable.message, throwable)
