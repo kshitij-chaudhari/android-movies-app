@@ -18,7 +18,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataModules {
+object DataModule {
     @Singleton
     @Provides
     fun provideMoviesUseCase(repository: MoviesRepository): MoviesUseCase =

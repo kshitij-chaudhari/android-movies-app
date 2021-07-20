@@ -12,7 +12,7 @@ import javax.inject.Named
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModules {
+object AppModule {
 
     @Provides
     @Named("tmdb-api-key")

@@ -1,0 +1,28 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/gX5UrH1TLVVBwI7WxplW43BD6Z1.jpg",
+      "genre_ids": [
+        28,
+        12,
+        53,
+        878
+      ],
+      "id": 497698,
+      "original_language": "en",
+      "original_title": "Black Widow",
+      "overview": "Natasha Romanoff, also known as Black Widow, confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy and the broken relationships left in her wake long before she became an Avenger.",
+      "popularity": 11579.322,
+      "poster_path": "/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg",
+      "release_date": "2021-07-07",
+      "title": "Black Widow",
+      "video": false,
+      "vote_average": 8.1,
+      "vote_count": 2722
+    }
+  ],
+  "total_pages": 1,
+  "total_results": 1
+}

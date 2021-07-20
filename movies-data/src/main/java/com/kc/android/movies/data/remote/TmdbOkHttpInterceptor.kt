@@ -9,7 +9,7 @@ import okhttp3.Response
 
 class TmdbOkHttpInterceptor(private val tmdbApiKey: String) : Interceptor {
     override fun intercept(chain: Chain): Response {
-        val httpUrl = chain.request().url().newBuilder()
+        val httpUrl = chain.request().url.newBuilder()
             .addQueryParameter("api_key", tmdbApiKey)
             .build()
 

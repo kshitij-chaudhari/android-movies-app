@@ -24,7 +24,7 @@ class CustomGsonConverterFactory {
                 JsonDeserializer { json: JsonElement?, _: Type?, _: JsonDeserializationContext? ->
                     json?.asString?.let {
                         try {
-                            SimpleDateFormat("yyyy-mm-dd", Locale.getDefault()).parse(it)
+                            SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(it)
                         } catch (e: Exception) {
                             null
                         }

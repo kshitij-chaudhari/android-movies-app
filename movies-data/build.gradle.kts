@@ -91,6 +91,7 @@ dependencies {
     testImplementation(Libs.AndroidX.Room.testing)
     testImplementation(Libs.Kotlin.Coroutines.test)
     testImplementation(Libs.Google.Hilt.androidTesting)
+    testImplementation(Libs.OkHttp3.mockWebServer)
 
     kaptTest(Libs.AndroidX.Room.roomCompiler)
 }
