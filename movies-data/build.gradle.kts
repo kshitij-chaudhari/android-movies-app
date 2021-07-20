@@ -38,6 +38,9 @@ android {
     kotlinOptions {
         allWarningsAsErrors = true
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+
+        // Enable using experimental APIs
+        freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
     }
 
     packagingOptions {

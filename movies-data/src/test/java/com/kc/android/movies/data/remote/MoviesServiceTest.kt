@@ -3,18 +3,14 @@
  */
 package com.kc.android.movies.data.remote
 
-import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
 import com.kc.android.movies.data.fake.FAKE_TMDB_KEY
-import com.kc.android.movies.data.fake.FakeMovies
-import com.kc.android.movies.data.models.MoviesResponse
+import com.kc.android.movies.data.fake.FakeMovieResponse
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.HiltTestApplication
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockWebServer
@@ -28,18 +24,18 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
-@ExperimentalCoroutinesApi
 @HiltAndroidTest
 @Config(application = HiltTestApplication::class)
 @RunWith(AndroidJUnit4::class)
 class MoviesServiceTest {
-    @get:Rule(order = 0) val hiltRule = HiltAndroidRule(this)
-    @get:Rule(order = 1) val instantExecutorRule = InstantTaskExecutorRule()
+    @get:Rule(order = 0)
+    val hiltRule = HiltAndroidRule(this)
+    @get:Rule(order = 1)
+    val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Inject lateinit var okHttpClient: OkHttpClient
     @Inject lateinit var gsonConverterFactory: GsonConverterFactory
 
-    private lateinit var context: Context
     private lateinit var mockServer: MockWebServer
     private lateinit var moviesService: MoviesService
 
@@ -47,7 +43,6 @@ class MoviesServiceTest {
     fun setUp() {
         hiltRule.inject()
 
-        context = ApplicationProvider.getApplicationContext<Context>()
         mockServer = MockWebServer()
         mockServer.start()
 
@@ -84,13 +79,4 @@ class MoviesServiceTest {
             assertThat(mockServer.takeRequest().path).isEqualTo("/movie/popular?page=1&api_key=$FAKE_TMDB_KEY")
         }
     }
-}
-
-object FakeMovieResponse {
-    val responseWithOnlyBlackWidow = MoviesResponse(
-        page = 1,
-        results = listOf(FakeMovies.blackWidow),
-        totalPages = 1,
-        totalResults = 1
-    )
 }

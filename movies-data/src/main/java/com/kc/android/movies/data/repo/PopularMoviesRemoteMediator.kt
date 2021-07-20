@@ -3,7 +3,6 @@
  */
 package com.kc.android.movies.data.repo
 
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -15,10 +14,10 @@ import com.kc.android.movies.data.models.RemoteKey
 import com.kc.android.movies.data.remote.MoviesService
 import retrofit2.HttpException
 import java.io.IOException
-import java.lang.IllegalStateException
 
 private const val REMOTE_KEY_LABEL = "POPULAR_MOVIES_KEY"
-@ExperimentalPagingApi
+
+@OptIn(ExperimentalPagingApi::class)
 class PopularMoviesRemoteMediator(private val db: MoviesDb, private val service: MoviesService) :
     RemoteMediator<Int, Movie>() {
 
@@ -27,21 +26,6 @@ class PopularMoviesRemoteMediator(private val db: MoviesDb, private val service:
 
     override suspend fun load(loadType: LoadType, state: PagingState<Int, Movie>): MediatorResult {
         try {
-            Log.d(
-                PopularMoviesRemoteMediator::class.simpleName,
-                """
-                PopularMoviesRemoteMediator#load(..) called with arguments -> 
-                loadType:$loadType,
-                state.pages:${state.pages},
-                state.anchorPosition:${state.anchorPosition},
-                state.lastItemOrNull:${state.lastItemOrNull()},
-                state.config.pageSize:${state.config.pageSize},
-                state.config.initialLoadSize:${state.config.initialLoadSize},
-                state.config.jumpThreshold:${state.config.jumpThreshold},
-                state.config.maxSize:${state.config.maxSize},
-                state.config.prefetchDistance:${state.config.prefetchDistance},
-                """
-            )
             val loadKey = when (loadType) {
                 LoadType.REFRESH -> null
                 LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
@@ -65,7 +49,7 @@ class PopularMoviesRemoteMediator(private val db: MoviesDb, private val service:
                 moviesDao.insertAll(*response.results.toTypedArray())
             }
 
-            return MediatorResult.Success(endOfPaginationReached = response.page < response.totalPages)
+            return MediatorResult.Success(endOfPaginationReached = response.page >= response.totalPages)
         } catch (ioEx: IOException) {
             return MediatorResult.Error(ioEx)
         } catch (httpEx: HttpException) {
