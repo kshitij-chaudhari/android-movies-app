@@ -7,7 +7,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.paging.PagingSource
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.kc.android.movies.data.fake.FakeMovies
+import com.kc.android.movies.data.fake.FakeMovieEntities
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.HiltTestApplication
@@ -57,15 +57,15 @@ class MoviesDaoTest {
 
     @Test
     fun `test-insert-all-and-get-all`() = testScope.runBlockingTest {
-        db.moviesDao().insertAll(FakeMovies.blackWidow)
+        db.moviesDao().insertAll(FakeMovieEntities.blackWidow)
 
         val fetchedMovies = db.moviesDao().getAll().first()
-        assertThat(fetchedMovies).containsExactly(FakeMovies.blackWidow)
+        assertThat(fetchedMovies).containsExactly(FakeMovieEntities.blackWidow)
     }
 
     @Test
     fun `test-delete-all`() = testScope.runBlockingTest {
-        db.moviesDao().insertAll(FakeMovies.blackWidow, FakeMovies.luca)
+        db.moviesDao().insertAll(FakeMovieEntities.blackWidow, FakeMovieEntities.luca)
 
         db.moviesDao().deleteAll()
         assertThat(db.moviesDao().getAll().first()).isEmpty()
@@ -75,11 +75,11 @@ class MoviesDaoTest {
     fun `test-paging-source-returns-same-as-page-size`() {
         // TODO could this be runBlockingTest?
         runBlocking {
-            val moviesList = listOf(FakeMovies.blackWidow, FakeMovies.luca)
+            val moviesList = listOf(FakeMovieEntities.blackWidow, FakeMovieEntities.luca)
             db.moviesDao().insertAll(*moviesList.toTypedArray())
 
             val expected = PagingSource.LoadResult.Page(
-                data = listOf(FakeMovies.blackWidow),
+                data = listOf(FakeMovieEntities.blackWidow),
                 prevKey = null,
                 nextKey = 1
             )

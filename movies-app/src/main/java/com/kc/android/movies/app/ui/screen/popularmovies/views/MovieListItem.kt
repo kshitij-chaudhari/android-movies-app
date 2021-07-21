@@ -18,7 +18,7 @@ import com.kc.android.movies.app.BuildConfig
 import com.kc.android.movies.app.ui.common.view.list.ListHeaderText
 import com.kc.android.movies.app.ui.common.view.list.ListSubHeaderDate
 import com.kc.android.movies.app.ui.common.view.list.ListThumbnailImage
-import com.kc.android.movies.data.models.Movie
+import com.kc.android.movies.domain.models.Movie
 import java.util.Date
 
 @Preview("MovieListItem Preview")
@@ -49,7 +49,7 @@ fun MovieListItem(movie: Movie, onclick: () -> Unit) {
             .clickable(onClick = onclick)
             .padding(16.dp)
     ) {
-        ListThumbnailImage("https://image.tmdb.org/t/p/w342" + movie.posterImagePath + "?api_key=" + BuildConfig.TMDB_API_KEY)
+        ListThumbnailImage("https://image.tmdb.org/t/p/w342${movie.posterImagePath ?: ""}?api_key=${BuildConfig.TMDB_API_KEY}")
         Column {
             ListHeaderText(movie.title)
             ListSubHeaderDate(movie.releaseDate)

@@ -1,5 +1,4 @@
 @file:Suppress("UnstableApiUsage")
-
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -13,3 +12,4 @@ rootProject.name = "MoviesApp"
 
 include(":movies-app")
 include(":movies-data")
+include(":movies-domain")

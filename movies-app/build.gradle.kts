@@ -52,6 +52,10 @@ android {
 }
 
 dependencies {
+    // modules
+    implementation(project(path = ":movies-domain"))
+    implementation(project(path = ":movies-data"))
+
     // android
     implementation(Libs.Google.material)
 
@@ -80,7 +84,4 @@ dependencies {
     // Accompanist
     implementation(Libs.Coil.coil)
     implementation(Libs.Coil.accompanist)
-
-    // modules
-    implementation(project(":movies-data"))
 }

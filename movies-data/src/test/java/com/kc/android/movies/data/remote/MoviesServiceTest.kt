@@ -8,6 +8,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
 import com.kc.android.movies.data.fake.FAKE_TMDB_KEY
 import com.kc.android.movies.data.fake.FakeMovieResponse
+import com.kc.android.movies.data.remote.services.MoviesService
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.HiltTestApplication
@@ -62,7 +63,7 @@ class MoviesServiceTest {
 
     @Test
     fun `test-fetchPopularMoviesByPaging-is-returned-and-parsed-properly`() {
-        mockServer.enqueue("test-responses/only-black-widow-response.json", 200)
+        mockServer.enqueue("test-responses/movies-response-only-black-widow.json", 200)
 
         // TODO can we use [TestCoroutineScope#runBlockingTest] instead of [runBlocking] below? Will need to check how to override okhttp dispatcher to something like [kotlinx.coroutines.test.TestCoroutineDispatcher]
         runBlocking {
@@ -73,7 +74,7 @@ class MoviesServiceTest {
 
     @Test
     fun `test-fetchPopularMoviesByPaging-has-correct-path`() {
-        mockServer.enqueue("test-responses/only-black-widow-response.json", 200)
+        mockServer.enqueue("test-responses/movies-response-only-black-widow.json", 200)
         runBlocking {
             moviesService.fetchPopularMoviesByPaging(1)
             assertThat(mockServer.takeRequest().path).isEqualTo("/movie/popular?page=1&api_key=$FAKE_TMDB_KEY")

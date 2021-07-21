@@ -3,7 +3,7 @@
  */
 package com.kc.android.movies.data.fake
 
-import com.kc.android.movies.data.models.Movie
+import com.kc.android.movies.domain.models.Movie
 import java.text.SimpleDateFormat
 import java.util.Locale
 

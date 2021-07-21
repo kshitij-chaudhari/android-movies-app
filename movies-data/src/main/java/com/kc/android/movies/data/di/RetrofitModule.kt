@@ -4,8 +4,8 @@
 package com.kc.android.movies.data.di
 
 import com.kc.android.movies.data.remote.CustomGsonConverterFactory
-import com.kc.android.movies.data.remote.MoviesService.Companion.BASE_URL
 import com.kc.android.movies.data.remote.TmdbOkHttpInterceptor
+import com.kc.android.movies.data.remote.services.MoviesService.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,13 +25,11 @@ object RetrofitModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
-    ): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(gsonConverterFactory)
-            .client(okHttpClient)
-            .build()
-    }
+    ): Retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(gsonConverterFactory)
+        .client(okHttpClient)
+        .build()
 
     @Singleton
     @Provides

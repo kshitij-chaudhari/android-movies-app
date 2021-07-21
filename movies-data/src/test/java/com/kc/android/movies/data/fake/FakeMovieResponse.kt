@@ -3,12 +3,12 @@
  */
 package com.kc.android.movies.data.fake
 
-import com.kc.android.movies.data.models.MoviesResponse
+import com.kc.android.movies.data.remote.dtos.MoviesResponse
 
 object FakeMovieResponse {
     val responseWithOnlyBlackWidow = MoviesResponse(
         page = 1,
-        results = listOf(FakeMovies.blackWidow),
+        results = listOf(FakeMovieDtos.blackWidow),
         totalPages = 2,
         totalResults = 2
     )

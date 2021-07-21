@@ -11,7 +11,7 @@ spotless {
         targetExclude("**/bin/**/*.kt")
 
         ktlint(Libs.KtLint.version)
-        licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
+        licenseHeaderFile(File("${rootDir.absolutePath}/spotless/copyright.kt"))
     }
 
     kotlinGradle {

@@ -57,30 +57,33 @@ android {
 }
 
 dependencies {
+    // modules
+    implementation(project(":movies-domain"))
+
     // androidx
-    api(Libs.AndroidX.coreKtx)
-    api(Libs.AndroidX.appcompat)
+    implementation(Libs.AndroidX.coreKtx)
+    implementation(Libs.AndroidX.appcompat)
 
     // room
-    api(Libs.AndroidX.Room.roomRuntime)
+    implementation(Libs.AndroidX.Room.roomRuntime)
     kapt(Libs.AndroidX.Room.roomCompiler)
-    api(Libs.AndroidX.Room.roomKtx)
+    implementation(Libs.AndroidX.Room.roomKtx)
 
     // paging
-    api(Libs.AndroidX.Paging.pagingRuntime)
+    implementation(Libs.AndroidX.Paging.pagingRuntime)
 
     // coroutines
-    api(Libs.Kotlin.Coroutines.core)
-    api(Libs.Kotlin.Coroutines.android)
+    implementation(Libs.Kotlin.Coroutines.core)
+    implementation(Libs.Kotlin.Coroutines.android)
 
     // hilt
-    api(Libs.Google.Hilt.android)
+    implementation(Libs.Google.Hilt.android)
     kapt(Libs.Google.Hilt.compiler)
 
     // ok-http & retrofit
-    api(Libs.OkHttp3.loggingInterceptor)
-    api(Libs.Retrofit2.retrofit)
+    implementation(Libs.Retrofit2.retrofit)
     api(Libs.Retrofit2.gsonConverter)
+    api(Libs.OkHttp3.loggingInterceptor)
 
     // test
     testImplementation(Libs.Test.testCoreKtx)

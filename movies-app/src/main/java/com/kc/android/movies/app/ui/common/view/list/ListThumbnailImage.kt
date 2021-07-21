@@ -24,8 +24,8 @@ fun Preview_ListThumbnailImage() {
 fun ListThumbnailImage(imagePath: String) {
     Image(
         contentScale = ContentScale.Crop,
+        // TODO use imageLoader + okHttp to pass the api_key
         painter = rememberCoilPainter(
-            // TODO use imageLoader + okHttp to pass the api_key
             request = imagePath,
             fadeIn = true
         ),
