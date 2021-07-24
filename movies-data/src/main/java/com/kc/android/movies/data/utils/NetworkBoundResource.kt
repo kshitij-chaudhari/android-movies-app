@@ -1,7 +1,7 @@
 /*
  * Copyright 2021 Kshitij Chaudhari
  */
-package com.kc.android.movies.data.repositories
+package com.kc.android.movies.data.utils
 
 import android.util.Log
 import com.kc.android.movies.domain.models.Resource
