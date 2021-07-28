@@ -5,7 +5,6 @@ package com.kc.android.movies.app.ui.common.view.list
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -23,7 +22,8 @@ fun Preview_ListSubHeaderDate() {
 @Composable
 fun ListSubHeaderDate(date: Date?) {
     Text(
-        text = date?.let { SimpleDateFormat(DATE_FORMAT, Locale.getDefault()).format(date) } ?: "",
-        color = Color.Gray
+        text = date?.let {
+            SimpleDateFormat(DATE_FORMAT, Locale.getDefault()).format(date)
+        } ?: "",
     )
 }
