@@ -25,7 +25,12 @@ fun PopularMoviesScreen(popularMoviesViewModel: PopularMoviesViewModel = viewMod
     LazyColumn {
         items(movies) { movie ->
             movie?.let {
-                MovieListItem(movie = movie, onclick = { /*TODO*/ })
+                MovieListItem(
+                    movie = movie,
+                    onclick = {
+                        // TODO
+                    }
+                )
                 Divider()
             }
         }

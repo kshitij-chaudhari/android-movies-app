@@ -3,6 +3,7 @@
  */
 package com.kc.android.movies.app.ui.common.view.list
 
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontWeight
@@ -28,6 +29,7 @@ fun Preview_ListHeaderText_Long() {
 fun ListHeaderText(text: String) {
     Text(
         text = text, fontWeight = FontWeight.Bold,
-        maxLines = 2, overflow = TextOverflow.Ellipsis
+        maxLines = 2, overflow = TextOverflow.Ellipsis,
+        color = MaterialTheme.colors.primary
     )
 }

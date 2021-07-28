@@ -39,11 +39,11 @@ fun Preview_MovieListItem() {
 }
 
 @Composable
-fun MovieListItem(movie: Movie, onclick: () -> Unit) {
+fun MovieListItem(movie: Movie, onclick: (Movie) -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onclick)
+            .clickable(onClick = { onclick(movie) })
             .padding(16.dp)
     ) {
         ListThumbnailImage("https://image.tmdb.org/t/p/w342${movie.posterImagePath ?: ""}?api_key=${BuildConfig.TMDB_API_KEY}")

@@ -24,6 +24,6 @@ fun ListSubHeaderDate(date: Date?) {
     Text(
         text = date?.let {
             SimpleDateFormat(DATE_FORMAT, Locale.getDefault()).format(date)
-        } ?: "",
+        } ?: ""
     )
 }
