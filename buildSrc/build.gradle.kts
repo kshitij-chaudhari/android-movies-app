@@ -17,7 +17,7 @@ repositories {
  */
 object Plugins {
     object Versions {
-        const val android = "7.1.0-alpha04"
+        const val android = "7.1.0-alpha05"
         const val kotlin = "1.5.10"
         const val spotless = "5.11.1"
         const val hilt = "2.37"
