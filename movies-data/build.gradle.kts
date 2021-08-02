@@ -65,7 +65,7 @@ dependencies {
     implementation(Libs.AndroidX.appcompat)
 
     // room
-    implementation(Libs.AndroidX.Room.roomRuntime)
+    api(Libs.AndroidX.Room.roomRuntime)
     kapt(Libs.AndroidX.Room.roomCompiler)
     implementation(Libs.AndroidX.Room.roomKtx)
 

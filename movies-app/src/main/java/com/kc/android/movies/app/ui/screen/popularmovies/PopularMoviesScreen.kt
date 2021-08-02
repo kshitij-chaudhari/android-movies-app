@@ -3,9 +3,11 @@
  */
 package com.kc.android.movies.app.ui.screen.popularmovies
 
+import android.widget.Toast
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -22,13 +24,14 @@ fun PopularMoviesScreen_Preview() {
 fun PopularMoviesScreen(popularMoviesViewModel: PopularMoviesViewModel = viewModel()) {
 
     val movies = popularMoviesViewModel.movies.collectAsLazyPagingItems()
+    val context = LocalContext.current
     LazyColumn {
         items(movies) { movie ->
             movie?.let {
                 MovieListItem(
                     movie = movie,
                     onclick = {
-                        // TODO
+                        Toast.makeText(context, movie.title, Toast.LENGTH_SHORT).show()
                     }
                 )
                 Divider()
