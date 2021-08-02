@@ -10,7 +10,7 @@ To use the TMDB API, you will need to setup a free TMDB account and generate V3 
 Once you obtain the key, add it inside gradle.properties -> `TMDB_API_KEY=<your-tmdb-key>`
 
 ## Development Instructions
-**Application is currently developed and tested on : Android Studio Bumblebee | 2021.1.1 Canary 6**
+**Application is currently developed and tested on : Android Studio Arctic Fox | 2020.3.1**
 
 If you use a lower version the app might not compile. For newer versions you will need to update the android-gradle-plugin version accordingly.
 
