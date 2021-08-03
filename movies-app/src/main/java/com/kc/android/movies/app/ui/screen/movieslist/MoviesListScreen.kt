@@ -9,8 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
+import com.kc.android.movies.app.ui.Destinations
 import com.kc.android.movies.app.ui.screen.movieslist.views.MovieListItem
 
 @Preview
@@ -20,7 +23,10 @@ fun MoviesListScreen_Preview() {
 }
 
 @Composable
-fun MoviesListScreen(moviesViewModel: MoviesViewModel = viewModel()) {
+fun MoviesListScreen(
+    navController: NavController = rememberNavController(),
+    moviesViewModel: MoviesViewModel = viewModel()
+) {
 
     val movies = moviesViewModel.movies.collectAsLazyPagingItems()
     val context = LocalContext.current
@@ -30,6 +36,7 @@ fun MoviesListScreen(moviesViewModel: MoviesViewModel = viewModel()) {
                 MovieListItem(
                     movie = movie,
                     onclick = {
+                        navController.navigate("${Destinations.MovieDetailsScreen.route}/${movie.id}")
                         Toast.makeText(context, movie.title, Toast.LENGTH_SHORT).show()
                     }
                 )
