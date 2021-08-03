@@ -18,21 +18,20 @@ inline fun <ResultType, RequestType> networkBoundResource(
     crossinline fetch: suspend () -> RequestType,
     crossinline saveFetchResult: suspend (RequestType) -> Unit,
     crossinline shouldFetch: (ResultType) -> Boolean = { true }
-) = flow {
+): Flow<Resource<ResultType>> = flow {
     val localData = query().first()
 
-    val flow = if (shouldFetch(localData)) {
+    if (shouldFetch(localData)) {
         emit(Resource.Loading(localData))
 
         try {
             saveFetchResult(fetch())
-            query().map { Resource.Success(it) }
+            emitAll(query().map { Resource.Success(it) })
         } catch (throwable: Throwable) {
             Log.e(this::class.simpleName, throwable.message, throwable)
-            query().map { Resource.Error(throwable, it) }
+            emitAll(query().map { Resource.Error(throwable, it) })
         }
     } else {
-        query().map { Resource.Success(it) }
+        emitAll(query().map { Resource.Success(it) })
     }
-    emitAll(flow)
 }.flowOn(Dispatchers.IO)

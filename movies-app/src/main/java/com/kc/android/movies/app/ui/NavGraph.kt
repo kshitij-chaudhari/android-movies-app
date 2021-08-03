@@ -8,9 +8,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.kc.android.movies.app.ui.screen.movieslist.MovieDetailsScreen
+import com.kc.android.movies.app.ui.screen.moviedetails.MovieDetailsScreen
+import com.kc.android.movies.app.ui.screen.moviedetails.MovieDetailsViewModel
 import com.kc.android.movies.app.ui.screen.movieslist.MoviesListScreen
-import com.kc.android.movies.app.ui.screen.movieslist.MoviesViewModel
+import com.kc.android.movies.app.ui.screen.movieslist.MoviesListViewModel
 
 /**
  * All the possible routes are defined inside [Destinations].
@@ -31,13 +32,16 @@ fun NavGraph(navController: NavHostController) {
         startDestination = Destinations.MoviesListScreen.route
     ) {
         composable(Destinations.MoviesListScreen.route) {
-            val moviesViewModel = hiltViewModel<MoviesViewModel>()
-            MoviesListScreen(navController, moviesViewModel)
-        }
-        composable("${Destinations.MovieDetailsScreen.route}/{movieId}") { backStackEntry ->
-            MovieDetailsScreen(
-                movieId = backStackEntry.arguments?.getInt("movieId")!!
+            val moviesListViewModel = hiltViewModel<MoviesListViewModel>(
+                navController.getBackStackEntry(Destinations.MoviesListScreen.route)
             )
+            MoviesListScreen(navController, moviesListViewModel)
+        }
+        composable("${Destinations.MovieDetailsScreen.route}/{movieId}") {
+            val movieDetailsViewModel = hiltViewModel<MovieDetailsViewModel>(
+                navController.getBackStackEntry("${Destinations.MovieDetailsScreen.route}/{movieId}")
+            )
+            MovieDetailsScreen(movieDetailsViewModel)
         }
     }
 }

@@ -1,7 +1,7 @@
 /*
  * Copyright 2021 Kshitij Chaudhari
  */
-package com.kc.android.movies.app.ui.common.view.list
+package com.kc.android.movies.app.ui.screen.movieslist.views
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

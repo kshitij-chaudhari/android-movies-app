@@ -10,6 +10,7 @@ import androidx.paging.map
 import com.kc.android.movies.data.local.MoviesDb
 import com.kc.android.movies.data.local.entities.mapper.toMovie
 import com.kc.android.movies.data.remote.services.MoviesService
+import com.kc.android.movies.data.utils.networkBoundResource
 import com.kc.android.movies.domain.repositories.MoviesRepository
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -28,4 +29,14 @@ class MoviesRepositoryImpl @Inject constructor(
     ) {
         moviesDao.pagingSource()
     }.flow.map { pagingData -> pagingData.map { movieEntity -> movieEntity.toMovie() } }
+
+    /**
+     * Since movie is previously fetched, currently there is no need to re-fetch movie from service.
+     */
+    override fun getMovie(id: Int) = networkBoundResource(
+        query = { db.moviesDao().get(id) },
+        fetch = { /* not needed */ },
+        saveFetchResult = { /* not needed */ },
+        shouldFetch = { false }
+    )
 }

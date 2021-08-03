@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.kc.android.movies.app.ui.Destinations
+import com.kc.android.movies.app.ui.common.view.FullScreenCircularLoadingSpinner
 import com.kc.android.movies.app.ui.screen.movieslist.views.MovieListItem
 
 @Preview
@@ -25,21 +26,26 @@ fun MoviesListScreen_Preview() {
 @Composable
 fun MoviesListScreen(
     navController: NavController = rememberNavController(),
-    moviesViewModel: MoviesViewModel = viewModel()
+    moviesListViewModel: MoviesListViewModel = viewModel()
 ) {
 
-    val movies = moviesViewModel.movies.collectAsLazyPagingItems()
+    val movies = moviesListViewModel.movies.collectAsLazyPagingItems()
     val context = LocalContext.current
-    LazyColumn {
-        items(movies) { movie ->
-            movie?.let {
-                MovieListItem(
-                    movie = movie,
-                    onclick = {
-                        navController.navigate("${Destinations.MovieDetailsScreen.route}/${movie.id}")
-                        Toast.makeText(context, movie.title, Toast.LENGTH_SHORT).show()
-                    }
-                )
+
+    if (movies.itemCount == 0) {
+        FullScreenCircularLoadingSpinner()
+    } else {
+        LazyColumn {
+            items(movies) { movie ->
+                movie?.let {
+                    MovieListItem(
+                        movie = movie,
+                        onclick = {
+                            navController.navigate("${Destinations.MovieDetailsScreen.route}/${movie.id}")
+                            Toast.makeText(context, movie.title, Toast.LENGTH_SHORT).show()
+                        }
+                    )
+                }
             }
         }
     }

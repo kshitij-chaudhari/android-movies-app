@@ -12,7 +12,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MoviesViewModel @Inject constructor(
+class MoviesListViewModel @Inject constructor(
     application: Application,
     moviesUseCase: MoviesUseCase,
 ) : AndroidViewModel(application) {

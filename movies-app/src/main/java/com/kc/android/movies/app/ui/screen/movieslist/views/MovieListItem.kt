@@ -19,9 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.kc.android.movies.app.BuildConfig
-import com.kc.android.movies.app.ui.common.view.list.ListHeaderText
-import com.kc.android.movies.app.ui.common.view.list.ListSubHeaderDate
-import com.kc.android.movies.app.ui.common.view.list.ListThumbnailImage
+import com.kc.android.movies.app.ui.common.view.HeaderText
 import com.kc.android.movies.domain.models.Movie
 import java.util.Date
 
@@ -65,9 +63,9 @@ fun MovieListItem(
                 .clickable(onClick = { onclick(movie) })
                 .padding(16.dp)
         ) {
-            ListThumbnailImage("https://image.tmdb.org/t/p/w342${movie.posterImagePath ?: ""}?api_key=${BuildConfig.TMDB_API_KEY}")
+            ListThumbnailImage(imagePath = "https://image.tmdb.org/t/p/w342${movie.posterImagePath ?: ""}?api_key=${BuildConfig.TMDB_API_KEY}")
             Column {
-                ListHeaderText(movie.title)
+                HeaderText(movie.title)
                 ListSubHeaderDate(movie.releaseDate)
                 PopularityText(movie.popularity)
             }
