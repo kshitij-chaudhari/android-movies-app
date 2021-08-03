@@ -6,7 +6,7 @@ package com.kc.android.movies.app.ui
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.kc.android.movies.app.ui.screen.popularmovies.PopularMoviesScreen
+import com.kc.android.movies.app.ui.screen.movieslist.MoviesListScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MoviesAppScreen {
-                PopularMoviesScreen()
+                MoviesListScreen()
             }
         }
     }

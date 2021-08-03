@@ -22,9 +22,9 @@ class MoviesRepositoryImpl @Inject constructor(
     private val moviesDao = db.moviesDao()
 
     @ExperimentalPagingApi
-    override fun getPopularMovies(pageSize: Int) = Pager(
+    override fun getMovies(pageSize: Int) = Pager(
         config = PagingConfig(pageSize),
-        remoteMediator = PopularMoviesRemoteMediator(db, service)
+        remoteMediator = MoviesRemoteMediator(db, service)
     ) {
         moviesDao.pagingSource()
     }.flow.map { pagingData -> pagingData.map { movieEntity -> movieEntity.toMovie() } }

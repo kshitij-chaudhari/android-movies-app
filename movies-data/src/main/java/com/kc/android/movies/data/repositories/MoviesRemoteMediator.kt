@@ -19,7 +19,7 @@ import java.io.IOException
 private const val REMOTE_KEY_LABEL = "POPULAR_MOVIES_KEY"
 
 @OptIn(ExperimentalPagingApi::class)
-class PopularMoviesRemoteMediator(private val db: MoviesDb, private val service: MoviesService) :
+class MoviesRemoteMediator(private val db: MoviesDb, private val service: MoviesService) :
     RemoteMediator<Int, MovieEntity>() {
 
     private val moviesDao = db.moviesDao()

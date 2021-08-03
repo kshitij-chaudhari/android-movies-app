@@ -24,7 +24,7 @@ class MoviesUseCaseImplTest {
         val moviesUseCase = MoviesUseCaseImpl(repository)
         val pageSize = 10
 
-        moviesUseCase.getPopularMovies(pageSize)
-        verify { repository.getPopularMovies(pageSize) }
+        moviesUseCase.getMovies(pageSize)
+        verify { repository.getMovies(pageSize) }
     }
 }

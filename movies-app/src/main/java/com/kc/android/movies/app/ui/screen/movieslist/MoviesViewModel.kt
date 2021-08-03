@@ -1,7 +1,7 @@
 /*
  * Copyright 2021 Kshitij Chaudhari
  */
-package com.kc.android.movies.app.ui.screen.popularmovies
+package com.kc.android.movies.app.ui.screen.movieslist
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -12,11 +12,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class PopularMoviesViewModel @Inject constructor(
+class MoviesViewModel @Inject constructor(
     application: Application,
     moviesUseCase: MoviesUseCase,
 ) : AndroidViewModel(application) {
 
-    val movies = moviesUseCase.getPopularMovies(50)
+    val movies = moviesUseCase.getMovies(50)
         .cachedIn(viewModelScope)
 }

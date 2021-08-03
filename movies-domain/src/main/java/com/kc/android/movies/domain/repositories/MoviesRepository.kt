@@ -8,5 +8,5 @@ import com.kc.android.movies.domain.models.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface MoviesRepository {
-    fun getPopularMovies(pageSize: Int): Flow<PagingData<Movie>>
+    fun getMovies(pageSize: Int): Flow<PagingData<Movie>>
 }

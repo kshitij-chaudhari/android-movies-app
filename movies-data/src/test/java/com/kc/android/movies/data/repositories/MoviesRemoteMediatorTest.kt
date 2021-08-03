@@ -39,7 +39,7 @@ import javax.inject.Inject
 @Config(application = HiltTestApplication::class)
 @RunWith(AndroidJUnit4::class)
 @OptIn(ExperimentalPagingApi::class, ExperimentalCoroutinesApi::class)
-class PopularMoviesRemoteMediatorTest {
+class MoviesRemoteMediatorTest {
     @get:Rule(order = 0)
     val hiltRule = HiltAndroidRule(this)
 
@@ -48,7 +48,7 @@ class PopularMoviesRemoteMediatorTest {
 
     @Inject lateinit var db: MoviesDb
     @RelaxedMockK lateinit var moviesService: MoviesService
-    private lateinit var remoteMediator: PopularMoviesRemoteMediator
+    private lateinit var remoteMediator: MoviesRemoteMediator
 
     private val testScope = TestCoroutineScope()
 
@@ -56,7 +56,7 @@ class PopularMoviesRemoteMediatorTest {
     fun setUp() {
         hiltRule.inject()
         MockKAnnotations.init(this)
-        remoteMediator = PopularMoviesRemoteMediator(db, moviesService)
+        remoteMediator = MoviesRemoteMediator(db, moviesService)
     }
 
     @After

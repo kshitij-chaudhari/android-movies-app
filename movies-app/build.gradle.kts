@@ -76,6 +76,7 @@ dependencies {
     implementation(Libs.AndroidX.Compose.lifecycleViewModelCompose)
     implementation(Libs.AndroidX.Compose.activityCompose)
     implementation(Libs.AndroidX.Compose.pagingCompose)
+//    implementation(Libs.AndroidX.Compose.navigationCompose)
 
     // hilt
     implementation(Libs.Google.Hilt.android)

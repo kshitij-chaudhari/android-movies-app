@@ -10,5 +10,5 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class MoviesUseCaseImpl @Inject constructor(private val repository: MoviesRepository) : MoviesUseCase {
-    override fun getPopularMovies(pageSize: Int): Flow<PagingData<Movie>> = repository.getPopularMovies(pageSize)
+    override fun getMovies(pageSize: Int): Flow<PagingData<Movie>> = repository.getMovies(pageSize)
 }
