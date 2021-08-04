@@ -8,7 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -26,7 +26,7 @@ fun MoviesListScreen_Preview() {
 @Composable
 fun MoviesListScreen(
     navController: NavController = rememberNavController(),
-    moviesListViewModel: MoviesListViewModel = viewModel()
+    moviesListViewModel: MoviesListViewModel = hiltViewModel()
 ) {
 
     val movies = moviesListViewModel.movies.collectAsLazyPagingItems()

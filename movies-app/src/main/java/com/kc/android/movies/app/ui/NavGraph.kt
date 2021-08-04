@@ -8,6 +8,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.kc.android.movies.app.ui.screen.moviedetails.MovieDetailsScreen
 import com.kc.android.movies.app.ui.screen.moviedetails.MovieDetailsViewModel
 import com.kc.android.movies.app.ui.screen.movieslist.MoviesListScreen
@@ -26,7 +27,7 @@ sealed class Destinations(val route: String) {
  * This composable acts as the Navigation Graph for the entire app.
  */
 @Composable
-fun NavGraph(navController: NavHostController) {
+fun NavGraph(navController: NavHostController = rememberNavController()) {
     NavHost(
         navController = navController,
         startDestination = Destinations.MoviesListScreen.route

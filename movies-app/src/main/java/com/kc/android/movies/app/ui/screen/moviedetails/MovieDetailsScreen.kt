@@ -15,9 +15,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kc.android.movies.app.BuildConfig
 import com.kc.android.movies.app.ui.common.view.FullScreenCircularLoadingSpinner
 import com.kc.android.movies.app.ui.common.view.HeaderText
@@ -27,7 +27,7 @@ import com.kc.android.movies.domain.models.Response
 
 @Composable
 fun MovieDetailsScreen(
-    movieDetailsViewModel: MovieDetailsViewModel = viewModel()
+    movieDetailsViewModel: MovieDetailsViewModel = hiltViewModel()
 ) {
     // Flow needs to be collected using [Flow#flowWithLifecycle] to ensure that producer is cancelled when the
     // app moves in background.
