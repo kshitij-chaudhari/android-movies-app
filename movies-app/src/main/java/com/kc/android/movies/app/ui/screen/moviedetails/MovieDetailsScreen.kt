@@ -10,24 +10,35 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kc.android.movies.app.BuildConfig
 import com.kc.android.movies.app.ui.common.view.FullScreenCircularLoadingSpinner
 import com.kc.android.movies.app.ui.common.view.HeaderText
 import com.kc.android.movies.app.ui.screen.moviedetails.views.DetailsTopImage
 import com.kc.android.movies.domain.models.Movie
-import com.kc.android.movies.domain.models.Resource
+import com.kc.android.movies.domain.models.Response
 
 @Composable
 fun MovieDetailsScreen(
     movieDetailsViewModel: MovieDetailsViewModel = viewModel()
 ) {
-    val state = movieDetailsViewModel.movie.collectAsState(initial = Resource.Loading())
-    when (state.value) {
-        is Resource.Success<Movie> -> {
-            val movie = (state.value as Resource.Success<Movie>).data
+    // Flow needs to be collected using [Flow#flowWithLifecycle] to ensure that producer is cancelled when the
+    // app moves in background.
+    val lifecycleOwner = LocalLifecycleOwner.current
+    val lifecycleAwareFlow = remember(movieDetailsViewModel.movie, lifecycleOwner) {
+        movieDetailsViewModel.movie.flowWithLifecycle(lifecycleOwner.lifecycle, Lifecycle.State.STARTED)
+    }
+    val response by lifecycleAwareFlow.collectAsState(Response.Loading())
+    when (response) {
+        is Response.Success<Movie> -> {
+            val movie = (response as Response.Success<Movie>).data
             Column {
                 DetailsTopImage(imagePath = "https://image.tmdb.org/t/p/w342${movie.backdropImagePath ?: movie.posterImagePath}?api_key=${BuildConfig.TMDB_API_KEY}")
 

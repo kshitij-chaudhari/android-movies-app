@@ -5,7 +5,7 @@ package com.kc.android.movies.domain.interactor
 
 import androidx.paging.PagingData
 import com.kc.android.movies.domain.models.Movie
-import com.kc.android.movies.domain.models.Resource
+import com.kc.android.movies.domain.models.Response
 import kotlinx.coroutines.flow.Flow
 
 interface MoviesUseCase {
@@ -17,5 +17,5 @@ interface MoviesUseCase {
     /**
      * Get a single [Movie] by [Movie.id]
      */
-    fun getMovie(id: Int): Flow<Resource<Movie>>
+    fun getMovie(id: Int): Flow<Response<Movie>>
 }

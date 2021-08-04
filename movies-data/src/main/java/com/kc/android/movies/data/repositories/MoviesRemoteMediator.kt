@@ -13,7 +13,6 @@ import com.kc.android.movies.data.local.entities.MovieEntity
 import com.kc.android.movies.data.local.entities.RemoteKeyEntity
 import com.kc.android.movies.data.remote.dtos.mapper.toMovieEntity
 import com.kc.android.movies.data.remote.services.MoviesService
-import kotlinx.coroutines.delay
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -38,7 +37,6 @@ class MoviesRemoteMediator(private val db: MoviesDb, private val service: Movies
                     remoteKey.nextKey
                 }
             }
-            delay(1000) // intentional delay so loading state could be seen
             val response = service.fetchPopularMoviesByPaging(loadKey).body()
                 ?: return MediatorResult.Error(IllegalStateException("response is null"))
 

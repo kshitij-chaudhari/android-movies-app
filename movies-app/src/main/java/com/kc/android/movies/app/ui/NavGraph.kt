@@ -32,15 +32,11 @@ fun NavGraph(navController: NavHostController) {
         startDestination = Destinations.MoviesListScreen.route
     ) {
         composable(Destinations.MoviesListScreen.route) {
-            val moviesListViewModel = hiltViewModel<MoviesListViewModel>(
-                navController.getBackStackEntry(Destinations.MoviesListScreen.route)
-            )
+            val moviesListViewModel = hiltViewModel<MoviesListViewModel>()
             MoviesListScreen(navController, moviesListViewModel)
         }
         composable("${Destinations.MovieDetailsScreen.route}/{movieId}") {
-            val movieDetailsViewModel = hiltViewModel<MovieDetailsViewModel>(
-                navController.getBackStackEntry("${Destinations.MovieDetailsScreen.route}/{movieId}")
-            )
+            val movieDetailsViewModel = hiltViewModel<MovieDetailsViewModel>()
             MovieDetailsScreen(movieDetailsViewModel)
         }
     }

@@ -17,6 +17,6 @@ class MoviesListViewModel @Inject constructor(
     moviesUseCase: MoviesUseCase,
 ) : AndroidViewModel(application) {
 
-    val movies = moviesUseCase.getMovies(50)
+    val movies = moviesUseCase.getMovies(pageSize = 50)
         .cachedIn(viewModelScope)
 }
