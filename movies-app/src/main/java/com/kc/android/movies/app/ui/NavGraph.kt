@@ -33,6 +33,10 @@ fun NavGraph(navController: NavHostController = rememberNavController()) {
         startDestination = Destinations.MoviesListScreen.route
     ) {
         composable(Destinations.MoviesListScreen.route) {
+            /*
+                FIXME: currently hiltViewModel does not seem to maintain state of configure change.
+                 This causes lazyColumn on list screen to be reloaded every time the device orientation is changed.
+             */
             val moviesListViewModel = hiltViewModel<MoviesListViewModel>()
             MoviesListScreen(navController, moviesListViewModel)
         }
