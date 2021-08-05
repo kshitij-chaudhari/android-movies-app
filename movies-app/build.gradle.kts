@@ -37,9 +37,13 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         allWarningsAsErrors = true
         jvmTarget = JavaVersion.VERSION_11.toString()
+
+        // Enable using experimental APIs
+        freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
     }
 
     buildFeatures {

@@ -9,13 +9,12 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.kc.android.movies.data.local.entities.MovieEntity
-import com.kc.android.movies.domain.models.Movie
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MoviesDao {
     @Query("SELECT * FROM movies WHERE id = :movieId")
-    fun get(movieId: Int): Flow<Movie>
+    fun get(movieId: Int): Flow<MovieEntity>
 
     @Query("SELECT * FROM movies")
     fun getAll(): Flow<List<MovieEntity>>

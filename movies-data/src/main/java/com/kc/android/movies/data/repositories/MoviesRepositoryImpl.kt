@@ -34,7 +34,7 @@ class MoviesRepositoryImpl @Inject constructor(
      * Since movie is previously fetched, currently there is no need to re-fetch movie from network.
      */
     override fun getMovie(id: Int) = networkBoundResource(
-        query = { db.moviesDao().get(id) },
+        query = { db.moviesDao().get(id).map { it.toMovie() } },
         fetch = { /* not needed */ },
         saveFetchResult = { /* not needed */ },
         shouldFetch = { false }
