@@ -20,11 +20,20 @@ class MoviesUseCaseImplTest {
     @After fun tearDown() = clearAllMocks()
 
     @Test
-    fun `getPopularMovies-passes-pageSize-to-repository`() {
+    fun `getMovies-calls-repository-with-given-pageSize`() {
         val moviesUseCase = MoviesUseCaseImpl(repository)
         val pageSize = 10
 
         moviesUseCase.getMovies(pageSize)
         verify { repository.getMovies(pageSize) }
+    }
+
+    @Test
+    fun `getMovie-calls-repository-with-given-movieIf`() {
+        val moviesUseCase = MoviesUseCaseImpl(repository)
+        val movieId = 1
+
+        moviesUseCase.getMovie(movieId)
+        verify { repository.getMovie(movieId) }
     }
 }
