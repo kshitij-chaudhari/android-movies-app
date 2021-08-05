@@ -12,5 +12,5 @@ import javax.inject.Inject
 
 class MoviesUseCaseImpl @Inject constructor(private val repository: MoviesRepository) : MoviesUseCase {
     override fun getMovies(pageSize: Int): Flow<PagingData<Movie>> = repository.getMovies(pageSize)
-    override fun getMovie(id: Int): Flow<Response<Movie>> = repository.getMovie(id)
+    override fun getMovie(id: Int): Flow<Response<Movie?>> = repository.getMovie(id)
 }

@@ -37,16 +37,19 @@ fun MovieDetailsScreen(
     }
     val response by lifecycleAwareFlow.collectAsState(Response.Loading())
     when (response) {
-        is Response.Success<Movie> -> {
-            val movie = (response as Response.Success<Movie>).data
-            Column {
-                DetailsTopImage(imagePath = "https://image.tmdb.org/t/p/w342${movie.backdropImagePath ?: movie.posterImagePath}?api_key=${BuildConfig.TMDB_API_KEY}")
+        is Response.Success<Movie?> -> {
+            val movie = (response as Response.Success<Movie?>).data
+            // Future Improvement - Currently nothing is done when [Movie] is null. Could be represented in a better way.
+            movie?.let {
+                Column {
+                    DetailsTopImage(imagePath = "https://image.tmdb.org/t/p/w342${movie.backdropImagePath ?: movie.posterImagePath}?api_key=${BuildConfig.TMDB_API_KEY}")
 
-                // Note: below could be moved out to custom composables, but not done in the sample
-                Spacer(modifier = Modifier.height(16.dp))
-                HeaderText(text = movie.title, modifier = Modifier.padding(start = 16.dp, end = 16.dp))
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(text = movie.overview, modifier = Modifier.padding(start = 16.dp, end = 16.dp))
+                    // Note: below could be moved out to custom composables, but not done in the sample
+                    Spacer(modifier = Modifier.height(16.dp))
+                    HeaderText(text = movie.title, modifier = Modifier.padding(start = 16.dp, end = 16.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(text = movie.overview, modifier = Modifier.padding(start = 16.dp, end = 16.dp))
+                }
             }
         }
         else -> {

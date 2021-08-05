@@ -1,4 +1,4 @@
 <resources>
-    <!-- List Items -->
+    <!-- Strings for Movie List Items -->
     <string name="label_popularity">Popularity : %1$.2f</string>
 </resources>

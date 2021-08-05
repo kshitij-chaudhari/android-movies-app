@@ -27,15 +27,13 @@ class MovieDetailsViewModel @Inject constructor(
 
     private val movieId: Int = savedStateHandle.get<String>("movieId")?.toInt() ?: 0
 
-    // Future Improvement : If movie is not found, show user relevant message
-    // and navigate back to list screen
-    private val _movie: MutableStateFlow<Response<Movie>> = MutableStateFlow(Response.Loading())
+    private val _movie: MutableStateFlow<Response<Movie?>> = MutableStateFlow(Response.Loading())
     val movie = _movie.asStateFlow()
 
     init {
         viewModelScope.launch {
             moviesUseCase.getMovie(movieId).collect {
-                delay(750) // 0.75 sec
+                delay(750) // delay to demonstrate loading spinner is shown before the actual data loads
                 _movie.value = it
             }
         }

@@ -15,6 +15,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DomainModule {
+
+    /**
+     * Default provider for [MoviesUseCase] so UI module need not worry about it.
+     */
     @Singleton
     @Provides
     fun provideMoviesUseCase(repository: MoviesRepository): MoviesUseCase = MoviesUseCaseImpl(repository)

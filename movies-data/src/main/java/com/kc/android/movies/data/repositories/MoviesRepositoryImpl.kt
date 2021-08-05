@@ -31,7 +31,7 @@ class MoviesRepositoryImpl @Inject constructor(
     }.flow.map { pagingData -> pagingData.map { movieEntity -> movieEntity.toMovie() } }
 
     /**
-     * Since movie is previously fetched, currently there is no need to re-fetch movie from service.
+     * Since movie is previously fetched, currently there is no need to re-fetch movie from network.
      */
     override fun getMovie(id: Int) = networkBoundResource(
         query = { db.moviesDao().get(id) },

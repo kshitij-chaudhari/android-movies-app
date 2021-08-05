@@ -1,4 +1,0 @@
-<resources>
-    <!-- Error Messages -->
-    <string name="error_msg_unknown_error">Failed to load. Error : %1$s</string>
-</resources>
