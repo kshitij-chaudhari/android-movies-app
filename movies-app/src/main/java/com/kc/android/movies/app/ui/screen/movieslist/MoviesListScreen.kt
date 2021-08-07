@@ -28,7 +28,13 @@ fun MoviesListScreen(
     navController: NavController = rememberNavController(),
     moviesListViewModel: MoviesListViewModel = hiltViewModel()
 ) {
-
+    /**
+     * FIXME: Navigation-Compose Issue
+     * There is open issue that the Navigation Compose that
+     * collectAsLazyPagingItems() does not maintain scroll position
+     * when navigation-compose is used.
+     * Open bug for tracking - https://issuetracker.google.com/issues/179397301
+     */
     val movies = moviesListViewModel.movies.collectAsLazyPagingItems()
     val context = LocalContext.current
 
