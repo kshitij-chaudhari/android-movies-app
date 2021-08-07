@@ -1,7 +1,7 @@
 /*
  * Copyright 2021 Kshitij Chaudhari
  */
-package com.kc.android.movies.app.ui
+package com.kc.android.movies.app
 
 import android.os.Bundle
 import androidx.activity.compose.setContent

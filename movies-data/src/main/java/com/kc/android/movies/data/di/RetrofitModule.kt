@@ -37,7 +37,6 @@ object RetrofitModule {
         httpLoggingInterceptor: HttpLoggingInterceptor,
         tmdbOkHttpInterceptor: TmdbOkHttpInterceptor
     ): OkHttpClient {
-        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()
             .addNetworkInterceptor(httpLoggingInterceptor)
             .addInterceptor(tmdbOkHttpInterceptor)
@@ -46,7 +45,11 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun provideLoggingInterceptor() = HttpLoggingInterceptor()
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+        val loggingInterceptor = HttpLoggingInterceptor()
+        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        return loggingInterceptor
+    }
 
     @Singleton
     @Provides

@@ -13,7 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
-import com.kc.android.movies.app.ui.Destinations
+import com.kc.android.movies.app.Destinations
 import com.kc.android.movies.app.ui.common.view.FullScreenCircularLoadingSpinner
 import com.kc.android.movies.app.ui.screen.movieslist.views.MovieListItem
 
