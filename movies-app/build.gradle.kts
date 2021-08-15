@@ -70,7 +70,7 @@ dependencies {
 
     // compose
     implementation(Libs.AndroidX.Compose.ui)
-    implementation(Libs.AndroidX.Compose.uiTooling)
+    implementation(Libs.AndroidX.Compose.uiToolingPreview)
     implementation(Libs.AndroidX.Compose.foundation)
     implementation(Libs.AndroidX.Compose.material)
     implementation(Libs.AndroidX.Compose.materialIconsCore)
@@ -82,6 +82,7 @@ dependencies {
     implementation(Libs.AndroidX.Compose.pagingCompose)
     implementation(Libs.AndroidX.Compose.navigationCompose)
     implementation(Libs.AndroidX.Compose.hiltNavigationCompose)
+    debugImplementation(Libs.AndroidX.Compose.debugUiTooling)
 
     // hilt
     implementation(Libs.Google.Hilt.android)
